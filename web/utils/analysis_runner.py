@@ -1,5 +1,5 @@
 """
-股票分析执行工具
+Stock Analysis Execution Tool
 """
 
 import sys
@@ -9,36 +9,36 @@ from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
 
-# 导入日志模块
+# Import logging module
 from tradingagents.utils.logging_manager import get_logger, get_logger_manager
 logger = get_logger('web')
 
-# 添加项目根目录到Python路径
+# Add project root directory to Python path
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-# 确保环境变量正确加载
+# Ensure environment variables are properly loaded
 load_dotenv(project_root / ".env", override=True)
 
-# 导入统一日志系统
+# Import unified logging system
 from tradingagents.utils.logging_init import setup_web_logging
 logger = setup_web_logging()
 
-# 添加配置管理器
+# Add configuration manager
 try:
     from tradingagents.config.config_manager import token_tracker
     TOKEN_TRACKING_ENABLED = True
-    logger.info("✅ Token跟踪功能已启用")
+    logger.info("✅ Token tracking enabled")
 except ImportError:
     TOKEN_TRACKING_ENABLED = False
-    logger.warning("⚠️ Token跟踪功能未启用")
+    logger.warning("⚠️ Token tracking not enabled")
 
 def translate_analyst_labels(text):
-    """将分析师的英文标签转换为中文"""
+    """Translate analyst English labels to Chinese"""
     if not text:
         return text
 
-    # 分析师标签翻译映射
+    # Analyst label translation mapping
     translations = {
         'Bull Analyst:': '看涨分析师:',
         'Bear Analyst:': '看跌分析师:',
@@ -51,53 +51,53 @@ def translate_analyst_labels(text):
         'Trader:': '交易员:'
     }
 
-    # 替换所有英文标签
+    # Replace all English labels
     for english, chinese in translations.items():
         text = text.replace(english, chinese)
 
     return text
 
 def extract_risk_assessment(state):
-    """从分析状态中提取风险评估数据"""
+    """Extract risk assessment data from analysis state"""
     try:
         risk_debate_state = state.get('risk_debate_state', {})
 
         if not risk_debate_state:
             return None
 
-        # 提取各个风险分析师的观点并进行中文化
+        # Extract viewpoints from various risk analysts and translate to Chinese
         risky_analysis = translate_analyst_labels(risk_debate_state.get('risky_history', ''))
         safe_analysis = translate_analyst_labels(risk_debate_state.get('safe_history', ''))
         neutral_analysis = translate_analyst_labels(risk_debate_state.get('neutral_history', ''))
         judge_decision = translate_analyst_labels(risk_debate_state.get('judge_decision', ''))
 
-        # 格式化风险评估报告
+        # Format risk assessment report
         risk_assessment = f"""
-## ⚠️ 风险评估报告
+## ⚠️ Risk Assessment Report
 
-### 🔴 激进风险分析师观点
-{risky_analysis if risky_analysis else '暂无激进风险分析'}
+### 🔴 Aggressive Risk Analyst Viewpoint
+{risky_analysis if risky_analysis else 'No aggressive risk analysis available'}
 
-### 🟡 中性风险分析师观点
-{neutral_analysis if neutral_analysis else '暂无中性风险分析'}
+### 🟡 Neutral Risk Analyst Viewpoint
+{neutral_analysis if neutral_analysis else 'No neutral risk analysis available'}
 
-### 🟢 保守风险分析师观点
-{safe_analysis if safe_analysis else '暂无保守风险分析'}
+### 🟢 Conservative Risk Analyst Viewpoint
+{safe_analysis if safe_analysis else 'No conservative risk analysis available'}
 
-### 🏛️ 风险管理委员会最终决议
-{judge_decision if judge_decision else '暂无风险管理决议'}
+### 🏛️ Risk Management Committee Final Decision
+{judge_decision if judge_decision else 'No risk management decision available'}
 
 ---
-*风险评估基于多角度分析，请结合个人风险承受能力做出投资决策*
+*Risk assessment is based on multi-perspective analysis. Please combine with your personal risk tolerance to make investment decisions*
         """.strip()
 
         return risk_assessment
 
     except Exception as e:
-        logger.info(f"提取风险评估数据时出错: {e}")
+        logger.info(f"Error extracting risk assessment data: {e}")
         return None
 
-def run_stock_analysis(stock_symbol, analysis_date, analysts, research_depth, llm_provider, llm_model, market_type="美股", progress_callback=None):
+def run_stock_analysis(stock_symbol, analysis_date, analysts, research_depth, llm_provider, llm_model, market_type="US Stock", progress_callback=None):
     """执行股票分析
 
     Args:
@@ -419,20 +419,20 @@ def run_stock_analysis(stock_symbol, analysis_date, analysts, research_depth, ll
 
         logger.info(f"使用配置: {config}")
         logger.info(f"分析师列表: {analysts}")
-        logger.info(f"股票代码: {stock_symbol}")
-        logger.info(f"分析日期: {analysis_date}")
+        logger.info(f"Stock Code: {stock_symbol}")
+        logger.info(f"Analysis Date: {analysis_date}")
 
         # 根据市场类型调整股票代码格式
         logger.debug(f"🔍 [RUNNER DEBUG] ===== 股票代码格式化 =====")
         logger.debug(f"🔍 [RUNNER DEBUG] 原始股票代码: '{stock_symbol}'")
         logger.debug(f"🔍 [RUNNER DEBUG] 市场类型: '{market_type}'")
 
-        if market_type == "A股":
+        if market_type == "A-Share":
             # A股代码不需要特殊处理，保持原样
             formatted_symbol = stock_symbol
             logger.debug(f"🔍 [RUNNER DEBUG] A股代码保持原样: '{formatted_symbol}'")
             update_progress(f"🇨🇳 准备分析A股: {formatted_symbol}")
-        elif market_type == "港股":
+        elif market_type == "HK Stock":
             # 港股代码转为大写，确保.HK后缀
             formatted_symbol = stock_symbol.upper()
             if not formatted_symbol.endswith('.HK'):
@@ -689,7 +689,7 @@ def format_analysis_results(results):
             'confidence': 0.5,
             'risk_score': 0.3,
             'target_price': None,
-            'reasoning': f'分析结果: {str(decision)}'
+            'reasoning': f'Analysis Results: {str(decision)}'
         }
     
     # 格式化状态信息
@@ -743,7 +743,7 @@ def format_analysis_results(results):
         }
     }
 
-def validate_analysis_params(stock_symbol, analysis_date, analysts, research_depth, market_type="美股"):
+def validate_analysis_params(stock_symbol, analysis_date, analysts, research_depth, market_type="US Stock"):
     """验证分析参数"""
 
     errors = []
@@ -756,12 +756,12 @@ def validate_analysis_params(stock_symbol, analysis_date, analysts, research_dep
     else:
         # 根据市场类型验证代码格式
         symbol = stock_symbol.strip()
-        if market_type == "A股":
+        if market_type == "A-Share":
             # A股：6位数字
             import re
             if not re.match(r'^\d{6}$', symbol):
                 errors.append("A股代码格式错误，应为6位数字（如：000001）")
-        elif market_type == "港股":
+        elif market_type == "HK Stock":
             # 港股：4-5位数字.HK 或 纯4-5位数字
             import re
             symbol_upper = symbol.upper()
@@ -772,7 +772,7 @@ def validate_analysis_params(stock_symbol, analysis_date, analysts, research_dep
 
             if not (hk_format or digit_format):
                 errors.append("港股代码格式错误，应为4位数字.HK（如：0700.HK）或4位数字（如：0700）")
-        elif market_type == "美股":
+        elif market_type == "US Stock":
             # 美股：1-5位字母
             import re
             if not re.match(r'^[A-Z]{1,5}$', symbol.upper()):
@@ -821,7 +821,7 @@ def get_supported_stocks():
     
     return popular_stocks
 
-def generate_demo_results_deprecated(stock_symbol, analysis_date, analysts, research_depth, llm_provider, llm_model, error_msg, market_type="美股"):
+def generate_demo_results_deprecated(stock_symbol, analysis_date, analysts, research_depth, llm_provider, llm_model, error_msg, market_type="US Stock"):
     """
     已弃用：生成演示分析结果
 
@@ -832,18 +832,18 @@ def generate_demo_results_deprecated(stock_symbol, analysis_date, analysts, rese
     import random
 
     # 根据市场类型设置货币符号和价格范围
-    if market_type == "港股":
+    if market_type == "HK Stock":
         currency_symbol = "HK$"
         price_range = (50, 500)  # 港股价格范围
-        market_name = "港股"
-    elif market_type == "A股":
+        market_name = "HK Stock"
+    elif market_type == "A-Share":
         currency_symbol = "¥"
         price_range = (5, 100)   # A股价格范围
-        market_name = "A股"
+        market_name = "A-Share"
     else:  # 美股
         currency_symbol = "$"
         price_range = (50, 300)  # 美股价格范围
-        market_name = "美股"
+        market_name = "US Stock"
 
     # 生成模拟决策
     actions = ['买入', '持有', '卖出']

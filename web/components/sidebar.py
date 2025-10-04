@@ -499,7 +499,7 @@ def render_sidebar():
             
             # API密钥配置
             api_key = st.text_input(
-                "API密钥",
+                "API Key",
                 value=st.session_state.custom_openai_api_key,
                 type="password",
                 placeholder="sk-...",

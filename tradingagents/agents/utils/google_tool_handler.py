@@ -109,7 +109,7 @@ class GoogleToolCallHandler:
                     keyword_count = sum(1 for keyword in analysis_keywords if keyword in content)
                     is_analysis_report = keyword_count >= 3  # 至少包含3个关键词
                 
-                logger.info(f"[{analyst_name}] 🔍 内容判断为{'分析报告' if is_analysis_report else '非分析报告'}")
+                logger.info(f"[{analyst_name}] 🔍 内容判断为{'Analysis Report' if is_analysis_report else '非分析报告'}")
                 
                 if is_analysis_report:
                     logger.info(f"[{analyst_name}] ✅ Google模型直接返回了分析报告，长度: {len(content)} 字符")
@@ -754,7 +754,7 @@ class GoogleToolCallHandler:
         Args:
             ticker: 股票代码
             company_name: 公司名称
-            analyst_type: 分析师类型（如"技术分析"、"基本面分析"等）
+            analyst_type: 分析师类型（如"Technical Analysis"、"Fundamentals Analysis"等）
             specific_requirements: 特定要求
             
         Returns:

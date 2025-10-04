@@ -200,7 +200,7 @@ def interactive_analysis():
                 filename = f"{symbol}_{analysis_type}_analysis.txt"
                 try:
                     with open(filename, 'w', encoding='utf-8') as f:
-                        f.write(f"股票代码: {symbol}\n")
+                        f.write(f"Stock Code: {symbol}\n")
                         f.write(f"分析类型: {analysis_type}\n")
                         f.write(f"生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                         f.write("=" * 60 + "\n")

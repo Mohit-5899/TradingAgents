@@ -40,7 +40,7 @@ def demo_basic_usage():
         
         stock_info = adapter.get_stock_info("000001")
         if stock_info:
-            logger.info(f"股票代码: {stock_info.get('symbol')}")
+            logger.info(f"Stock Code: {stock_info.get('symbol')}")
             logger.info(f"股票名称: {stock_info.get('name')}")
             logger.info(f"所属行业: {stock_info.get('industry')}")
             logger.info(f"所属地区: {stock_info.get('area')}")

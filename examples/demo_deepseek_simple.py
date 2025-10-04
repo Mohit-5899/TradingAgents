@@ -113,7 +113,7 @@ def main():
     # 运行演示
     demos = [
         ("简单对话", demo_simple_chat),
-        ("股票分析", demo_stock_analysis)
+        ("Stock Analysis", demo_stock_analysis)
     ]
     
     results = []

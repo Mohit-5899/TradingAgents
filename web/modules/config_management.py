@@ -39,7 +39,7 @@ def render_config_management():
     st.sidebar.title("配置选项")
     page = st.sidebar.selectbox(
         "选择功能",
-        ["模型配置", "定价设置", "使用统计", "系统设置"]
+        ["模型配置", "定价设置", "使用统计", "System Settings"]
     )
     
     if page == "模型配置":
@@ -48,7 +48,7 @@ def render_config_management():
         render_pricing_config()
     elif page == "使用统计":
         render_usage_statistics()
-    elif page == "系统设置":
+    elif page == "System Settings":
         render_system_settings()
 
 
@@ -78,7 +78,7 @@ def render_model_config():
                 "序号": i,
                 "供应商": model.provider,
                 "模型名称": model.model_name,
-                "API密钥": api_key_display,
+                "API Key": api_key_display,
                 "最大Token": model.max_tokens,
                 "温度": model.temperature,
                 "状态": "✅ 启用" if model.enabled else "❌ 禁用"
@@ -107,7 +107,7 @@ def render_model_config():
             col1, col2 = st.columns(2)
 
             with col1:
-                new_api_key = st.text_input("API密钥", value=model.api_key, type="password", key=f"edit_api_key_{selected_model_idx}")
+                new_api_key = st.text_input("API Key", value=model.api_key, type="password", key=f"edit_api_key_{selected_model_idx}")
                 if env_has_key:
                     st.caption("⚠️ 此密钥来自 .env 文件，Web修改可能被覆盖")
                 new_max_tokens = st.number_input("最大Token数", value=model.max_tokens, min_value=1000, max_value=32000, key=f"edit_max_tokens_{selected_model_idx}")
@@ -144,7 +144,7 @@ def render_model_config():
     with col1:
         new_provider = st.selectbox("供应商", ["dashscope", "openai", "google", "anthropic", "other"], key="new_provider")
         new_model_name = st.text_input("模型名称", placeholder="例如: gpt-4, qwen-plus-latest", key="new_model_name")
-        new_api_key = st.text_input("API密钥", type="password", key="new_api_key")
+        new_api_key = st.text_input("API Key", type="password", key="new_api_key")
 
     with col2:
         new_max_tokens = st.number_input("最大Token数", value=4000, min_value=1000, max_value=32000, key="new_max_tokens")

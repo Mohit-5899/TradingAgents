@@ -390,7 +390,7 @@ def create_market_analyst(llm, toolkit):
             analysis_prompt_template = GoogleToolCallHandler.create_analysis_prompt(
                 ticker=ticker,
                 company_name=company_name,
-                analyst_type="市场分析",
+                analyst_type="Market Analysis",
                 specific_requirements="重点关注市场数据、价格走势、交易量变化等市场指标。"
             )
             
@@ -401,7 +401,7 @@ def create_market_analyst(llm, toolkit):
                 tools=tools,
                 state=state,
                 analysis_prompt_template=analysis_prompt_template,
-                analyst_name="市场分析师"
+                analyst_name="Market Analyst"
             )
             
             return {

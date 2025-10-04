@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-MongoDB报告管理器
-用于保存和读取分析报告到MongoDB数据库
+MongoDB Report Manager
+Used to save and read analysis reports to/from MongoDB database
 """
 
 import os
@@ -18,11 +18,11 @@ try:
     MONGODB_AVAILABLE = True
 except ImportError:
     MONGODB_AVAILABLE = False
-    logger.warning("pymongo未安装，MongoDB功能不可用")
+    logger.warning("pymongo not installed, MongoDB features unavailable")
 
 
 class MongoDBReportManager:
-    """MongoDB报告管理器"""
+    """MongoDB Report Manager"""
     
     def __init__(self):
         self.client = None

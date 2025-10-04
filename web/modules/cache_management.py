@@ -294,7 +294,7 @@ def main():
                     use_container_width=True,
                     hide_index=True,
                     column_config={
-                        "symbol": st.column_config.TextColumn("股票代码", width="small"),
+                        "symbol": st.column_config.TextColumn("Stock Code", width="small"),
                         "data_source": st.column_config.TextColumn("数据源", width="small"),
                         "cached_at": st.column_config.TextColumn("缓存时间", width="medium"),
                         "start_date": st.column_config.TextColumn("开始日期", width="small"),

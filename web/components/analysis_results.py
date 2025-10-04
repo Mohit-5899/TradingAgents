@@ -457,14 +457,14 @@ def render_results_list(results: List[Dict[str, Any]]):
     # 排序选项
     col1, col2 = st.columns([2, 1])
     with col1:
-        sort_by = st.selectbox("排序方式", ["时间倒序", "时间正序", "股票代码", "成功率"])
+        sort_by = st.selectbox("排序方式", ["时间倒序", "时间正序", "Stock Code", "成功率"])
     with col2:
         view_mode = st.selectbox("显示模式", ["卡片视图", "表格视图"])
     
     # 排序结果
     if sort_by == "时间正序":
         results.sort(key=lambda x: safe_timestamp_to_datetime(x.get('timestamp', 0)))
-    elif sort_by == "股票代码":
+    elif sort_by == "Stock Code":
         results.sort(key=lambda x: x.get('stock_symbol', ''))
     elif sort_by == "成功率":
         results.sort(key=lambda x: 1 if x.get('status') == 'completed' else 0, reverse=True)
@@ -635,20 +635,20 @@ def render_results_comparison(results: List[Dict[str, Any]]):
     st.subheader("📋 基本信息对比")
     
     comparison_data = {
-        '项目': ['股票代码', '分析时间', '分析师', '研究深度', '状态'],
+        '项目': ['Stock Code', '分析时间', '分析师', 'Research Depth', '状态'],
         '结果A': [
             result_a.get('stock_symbol', 'unknown'),
             safe_timestamp_to_datetime(result_a.get('timestamp', 0)).strftime('%Y-%m-%d %H:%M'),
             ', '.join(result_a.get('analysts', [])),
             str(result_a.get('research_depth', 'unknown')),
-            '完成' if result_a.get('status') == 'completed' else '失败'
+            'Completed' if result_a.get('status') == 'completed' else 'Failed'
         ],
         '结果B': [
             result_b.get('stock_symbol', 'unknown'),
             safe_timestamp_to_datetime(result_b.get('timestamp', 0)).strftime('%Y-%m-%d %H:%M'),
             ', '.join(result_b.get('analysts', [])),
             str(result_b.get('research_depth', 'unknown')),
-            '完成' if result_b.get('status') == 'completed' else '失败'
+            'Completed' if result_b.get('status') == 'completed' else 'Failed'
         ]
     }
     
@@ -714,7 +714,7 @@ def render_results_charts(results: List[Dict[str, Any]]):
             x=stocks,
             y=counts,
             title="最常分析的股票 (前10名)",
-            labels={'x': '股票代码', 'y': '分析次数'},
+            labels={'x': 'Stock Code', 'y': '分析次数'},
             color=counts,
             color_continuous_scale='viridis'
         )
@@ -768,19 +768,19 @@ def render_results_charts(results: List[Dict[str, Any]]):
     
     # 成功率统计
     st.subheader("✅ 分析成功率统计")
-    success_data = {'成功': 0, '失败': 0}
+    success_data = {'Success': 0, 'Failed': 0}
     for result in results:
         if result.get('status') == 'completed':
-            success_data['成功'] += 1
+            success_data['Success'] += 1
         else:
-            success_data['失败'] += 1
+            success_data['Failed'] += 1
     
-    if success_data['成功'] + success_data['失败'] > 0:
+    if success_data['Success'] + success_data['Failed'] > 0:
         fig_success = px.pie(
             values=list(success_data.values()),
             names=list(success_data.keys()),
             title="分析成功率",
-            color_discrete_map={'成功': '#4CAF50', '失败': '#F44336'}
+            color_discrete_map={'Success': '#4CAF50', 'Failed': '#F44336'}
         )
         st.plotly_chart(fig_success, use_container_width=True)
     
@@ -908,9 +908,9 @@ def render_results_export(results: List[Dict[str, Any]]):
                 for result in results:
                     summary_data.append({
                         '分析时间': safe_timestamp_to_datetime(result.get('timestamp', 0)).strftime('%Y-%m-%d %H:%M:%S'),
-                        '股票代码': result.get('stock_symbol', 'unknown'),
+                        'Stock Code': result.get('stock_symbol', 'unknown'),
                         '分析师': ', '.join(result.get('analysts', [])),
-                        '研究深度': result.get('research_depth', 'unknown'),
+                        'Research Depth': result.get('research_depth', 'unknown'),
                         '状态': result.get('status', 'unknown'),
                         '摘要': result.get('summary', '')[:100] + '...' if len(result.get('summary', '')) > 100 else result.get('summary', '')
                     })
@@ -1019,7 +1019,7 @@ def render_results_comparison(results: List[Dict[str, Any]]):
     st.subheader("📊 基本信息对比")
     
     comparison_data = {
-        "项目": ["股票代码", "分析时间", "分析师数量", "研究深度", "状态", "标签数量"],
+        "项目": ["Stock Code", "分析时间", "分析师数量", "Research Depth", "状态", "标签数量"],
         "分析结果 A": [
             result_a.get('stock_symbol', 'unknown'),
             safe_timestamp_to_datetime(result_a.get('timestamp', 0)).strftime('%Y-%m-%d %H:%M'),
@@ -1197,7 +1197,7 @@ def render_detailed_analysis(results: List[Dict[str, Any]]):
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.metric("股票代码", selected_result.get('stock_symbol', 'unknown'))
+            st.metric("Stock Code", selected_result.get('stock_symbol', 'unknown'))
             st.metric("分析师数量", len(selected_result.get('analysts', [])))
         
         with col2:
@@ -1207,7 +1207,7 @@ def render_detailed_analysis(results: List[Dict[str, Any]]):
             st.metric("状态", status)
         
         with col3:
-            st.metric("研究深度", selected_result.get('research_depth', 'unknown'))
+            st.metric("Research Depth", selected_result.get('research_depth', 'unknown'))
             tags = selected_result.get('tags', [])
             st.metric("标签数量", len(tags))
         

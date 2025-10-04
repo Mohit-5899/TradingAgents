@@ -1,6 +1,6 @@
 """
-智能会话管理器 - 自动选择最佳存储方案
-优先级：Redis > 文件存储
+Smart Session Manager - Automatically select optimal storage solution
+Priority: Redis > File Storage
 """
 
 import streamlit as st
@@ -8,7 +8,7 @@ import os
 from typing import Optional, Dict, Any
 
 class SmartSessionManager:
-    """智能会话管理器"""
+    """Smart Session Manager"""
     
     def __init__(self):
         self.redis_manager = None
@@ -17,11 +17,11 @@ class SmartSessionManager:
         self._init_file_manager()
         
     def _init_redis_manager(self) -> bool:
-        """尝试初始化Redis管理器"""
+        """Try to initialize Redis manager"""
         try:
             from .redis_session_manager import redis_session_manager
             
-            # 测试Redis连接
+            # Test Redis connection
             if redis_session_manager.use_redis:
                 self.redis_manager = redis_session_manager
                 return True
@@ -32,12 +32,12 @@ class SmartSessionManager:
             return False
     
     def _init_file_manager(self):
-        """初始化文件管理器"""
+        """Initialize file manager"""
         try:
             from .file_session_manager import file_session_manager
             self.file_manager = file_session_manager
         except Exception as e:
-            st.error(f"❌ 文件会话管理器初始化失败: {e}")
+            st.error(f"❌ File session manager initialization failed: {e}")
     
     def save_analysis_state(self, analysis_id: str, status: str = "running",
                            stock_symbol: str = "", market_type: str = "",

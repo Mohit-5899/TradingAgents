@@ -1,6 +1,6 @@
 """
-登录组件
-提供用户登录界面
+Login Component
+Provides user login interface
 """
 
 import streamlit as st
@@ -9,31 +9,31 @@ import sys
 from pathlib import Path
 import base64
 
-# 添加项目根目录到Python路径
+# Add project root directory to Python path
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-# 导入认证管理器 - 使用全局变量确保在整个模块中可用
+# Import authentication manager - use global variable to ensure availability throughout the module
 auth_manager = None
 
-# 尝试多种导入路径
+# Try multiple import paths
 try:
-    # 尝试相对导入（从 web 目录运行时）
+    # Try relative import (when running from web directory)
     from ..utils.auth_manager import AuthManager, auth_manager as imported_auth_manager
     auth_manager = imported_auth_manager
 except ImportError:
     try:
-        # 尝试从 web.utils 导入（从项目根目录运行时）
+        # Try importing from web.utils (when running from project root)
         from web.utils.auth_manager import AuthManager, auth_manager as imported_auth_manager
         auth_manager = imported_auth_manager
     except ImportError:
         try:
-            # 尝试直接从 utils 导入
+            # Try importing directly from utils
             from utils.auth_manager import AuthManager, auth_manager as imported_auth_manager
             auth_manager = imported_auth_manager
         except ImportError:
             try:
-                # 尝试绝对路径导入
+                # Try absolute path import
                 import sys
                 from pathlib import Path
                 web_utils_path = Path(__file__).parent.parent / "utils"
@@ -41,7 +41,7 @@ except ImportError:
                 from auth_manager import AuthManager, auth_manager as imported_auth_manager
                 auth_manager = imported_auth_manager
             except ImportError:
-                # 如果都失败了，创建一个简单的认证管理器
+                # If all fail, create a simple authentication manager
                 class SimpleAuthManager:
                     def __init__(self):
                         self.authenticated = False
@@ -71,7 +71,7 @@ except ImportError:
                 auth_manager = SimpleAuthManager()
 
 def get_base64_image(image_path):
-    """将图片转换为base64编码"""
+    """Convert image to base64 encoding"""
     try:
         with open(image_path, "rb") as img_file:
             return base64.b64encode(img_file.read()).decode()
@@ -79,9 +79,9 @@ def get_base64_image(image_path):
         return None
 
 def render_login_form():
-    """渲染登录表单"""
+    """Render login form"""
     
-    # 现代化登录页面样式
+    # Modern login page styles
     st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -217,7 +217,7 @@ def render_login_form():
     </style>
     """, unsafe_allow_html=True)
     
-    # 主登录容器
+    # Main login container
     st.markdown("""
     <div class="login-container">
         <div class="login-header">
@@ -227,40 +227,40 @@ def render_login_form():
     </div>
     """, unsafe_allow_html=True)
     
-    # 登录表单
+    # Login form
     with st.container():
         st.markdown('<div class="login-form">', unsafe_allow_html=True)
         
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            st.markdown("### 🔐 用户登录")
+            st.markdown("### 🔐 User Login")
             username = st.text_input(
-                "用户名", 
-                placeholder="请输入您的用户名", 
+                "Username", 
+                placeholder="Please enter your username", 
                 key="username_input",
                 label_visibility="collapsed"
             )
             password = st.text_input(
-                "密码", 
+                "Password", 
                 type="password", 
-                placeholder="请输入您的密码", 
+                placeholder="Please enter your password", 
                 key="password_input",
                 label_visibility="collapsed"
             )
             
             st.markdown("<br>", unsafe_allow_html=True)
             
-            if st.button("🚀 立即登录", use_container_width=True, key="login_button"):
+            if st.button("🚀 Login Now", use_container_width=True, key="login_button"):
                 if username and password:
                     # 使用auth_manager.login()方法来确保前端缓存被正确保存
                     if auth_manager.login(username, password):
-                        st.success("✅ 登录成功！正在为您跳转...")
+                        st.success("✅ Login successful! Redirecting for you...")
                         time.sleep(1)
                         st.rerun()
                     else:
-                        st.error("❌ 用户名或密码错误，请重试")
+                        st.error("❌ Username or password incorrect, please try again")
                 else:
-                    st.warning("⚠️ 请输入完整的登录信息")
+                    st.warning("⚠️ Please enter complete login information")
         
         st.markdown('</div>', unsafe_allow_html=True)
     

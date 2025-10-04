@@ -264,7 +264,7 @@ def create_news_analyst(llm, toolkit):
             analysis_prompt_template = GoogleToolCallHandler.create_analysis_prompt(
                 ticker=ticker,
                 company_name=company_name,
-                analyst_type="新闻分析",
+                analyst_type="News Analysis",
                 specific_requirements="重点关注新闻事件对股价的影响、市场情绪变化、政策影响等。"
             )
             
@@ -275,7 +275,7 @@ def create_news_analyst(llm, toolkit):
                 tools=tools,
                 state=state,
                 analysis_prompt_template=analysis_prompt_template,
-                analyst_name="新闻分析师"
+                analyst_name="News Analyst"
             )
         else:
             # 非Google模型的处理逻辑

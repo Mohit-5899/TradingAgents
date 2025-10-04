@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-TradingAgents-CN Streamlit Web界面
-基于Streamlit的股票分析Web应用程序
+TradingAgents Streamlit Web Interface
+Streamlit-based Stock Analysis Web Application
 """
 
 import streamlit as st
@@ -13,24 +13,24 @@ import datetime
 import time
 from dotenv import load_dotenv
 
-# 添加项目根目录到Python路径
+# Add project root directory to Python path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-# 导入日志模块
+# Import logging module
 try:
     from tradingagents.utils.logging_manager import get_logger
     logger = get_logger('web')
 except ImportError:
-    # 如果无法导入，使用标准logging
+    # If import fails, use standard logging
     import logging
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger('web')
 
-# 加载环境变量
+# Load environment variables
 load_dotenv(project_root / ".env", override=True)
 
-# 导入自定义组件
+# Import custom components
 from components.sidebar import render_sidebar
 from components.header import render_header
 from components.analysis_form import render_analysis_form
@@ -46,21 +46,21 @@ from utils.smart_session_manager import get_persistent_analysis_id, set_persiste
 from utils.auth_manager import auth_manager
 from utils.user_activity_logger import user_activity_logger
 
-# 设置页面配置
+# Set page configuration
 st.set_page_config(
-    page_title="TradingAgents-CN 股票分析平台",
+    page_title="TradingAgents Stock Analysis Platform",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items=None
 )
 
-# 自定义CSS样式
+# Custom CSS styles
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
-    /* 隐藏Streamlit顶部工具栏和Deploy按钮 - 多种选择器确保兼容性 */
+    /* Hide Streamlit top toolbar and Deploy button - multiple selectors for compatibility */
     .stAppToolbar {
         display: none !important;
     }
@@ -73,7 +73,7 @@ st.markdown("""
         display: none !important;
     }
     
-    /* 新版本Streamlit的Deploy按钮选择器 */
+    /* Deploy button selectors for newer Streamlit versions */
     [data-testid="stToolbar"] {
         display: none !important;
     }
@@ -86,7 +86,7 @@ st.markdown("""
         display: none !important;
     }
     
-    /* 隐藏整个顶部区域 */
+    /* Hide entire top area */
     .stApp > header {
         display: none !important;
     }
@@ -95,47 +95,47 @@ st.markdown("""
         display: none !important;
     }
     
-    /* 隐藏主菜单按钮 */
+    /* Hide main menu button */
     #MainMenu {
         visibility: hidden !important;
         display: none !important;
     }
     
-    /* 隐藏页脚 */
+    /* Hide footer */
     footer {
         visibility: hidden !important;
         display: none !important;
     }
     
-    /* 隐藏"Made with Streamlit"标识 */
+    /* Hide "Made with Streamlit" badge */
     .viewerBadge_container__1QSob {
         display: none !important;
     }
     
-    /* 隐藏所有可能的工具栏元素 */
+    /* Hide all possible toolbar elements */
     div[data-testid="stToolbar"] {
         display: none !important;
     }
     
-    /* 隐藏右上角的所有按钮 */
+    /* Hide all buttons in top right corner */
     .stApp > div > div > div > div > section > div {
         padding-top: 0 !important;
     }
     
-    /* 全局样式 */
+    /* Global styles */
     .stApp {
         font-family: 'Inter', sans-serif;
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
     
-    /* 主容器样式 */
+    /* Main container styles */
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
         max-width: 1200px;
     }
     
-    /* 主标题样式 */
+    /* Main title styles */
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 2rem;
@@ -160,7 +160,7 @@ st.markdown("""
         font-weight: 400;
     }
     
-    /* 卡片样式 */
+    /* Card styles */
     .metric-card {
         background: rgba(255, 255, 255, 0.9);
         padding: 1.5rem;
@@ -204,7 +204,7 @@ st.markdown("""
         backdrop-filter: blur(20px);
     }
     
-    /* 按钮样式 */
+    /* Button styles */
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -222,7 +222,7 @@ st.markdown("""
         box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
     }
     
-    /* 输入框样式 */
+    /* Input field styles */
     .stTextInput > div > div > input,
     .stSelectbox > div > div > select,
     .stTextArea > div > div > textarea {
@@ -242,13 +242,13 @@ st.markdown("""
         background: white;
     }
     
-    /* 侧边栏样式 */
+    /* Sidebar styles */
     .css-1d391kg {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
     }
     
-    /* 状态框样式 */
+    /* Status box styles */
     .success-box {
         background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
         border: 1px solid #9ae6b4;
@@ -276,13 +276,13 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(245, 198, 203, 0.3);
     }
     
-    /* 进度条样式 */
+    /* Progress bar styles */
     .stProgress > div > div > div > div {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 10px;
     }
     
-    /* 标签页样式 */
+    /* Tab styles */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
     }
@@ -300,14 +300,14 @@ st.markdown("""
         color: white;
     }
     
-    /* 数据框样式 */
+    /* DataFrame styles */
     .dataframe {
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
     
-    /* 图表容器样式 */
+    /* Chart container styles */
     .js-plotly-plot {
         border-radius: 12px;
         overflow: hidden;
@@ -422,103 +422,103 @@ def check_frontend_auth_cache():
     logger.info(f"📊 当前认证状态: {st.session_state.get('authenticated', False)}")
     logger.info(f"🔗 URL参数: {dict(st.query_params)}")
     
-    # 如果已经认证，确保状态同步
+    # If already authenticated, ensure state synchronization
     if st.session_state.get('authenticated', False):
-        # 确保auth_manager也知道用户已认证
+        # Ensure auth_manager also knows user is authenticated
         if not auth_manager.is_authenticated() and st.session_state.get('user_info'):
-            logger.info("🔄 同步认证状态到auth_manager")
+            logger.info("🔄 Synchronizing authentication status to auth_manager")
             try:
                 auth_manager.login_user(
                     st.session_state.user_info, 
                     st.session_state.get('login_time', time.time())
                 )
-                logger.info("✅ 认证状态同步成功")
+                logger.info("✅ Authentication status synchronized successfully")
             except Exception as e:
-                logger.warning(f"⚠️ 认证状态同步失败: {e}")
+                logger.warning(f"⚠️ Authentication status synchronization failed: {e}")
         else:
-            logger.info("✅ 用户已认证，跳过缓存检查")
+            logger.info("✅ User already authenticated, skipping cache check")
         return
     
-    # 检查URL参数中是否有恢复信息
+    # Check if there is recovery information in URL parameters
     try:
         import base64
         restore_data = st.query_params.get('restore_auth')
         
         if restore_data:
-            logger.info("📥 发现URL中的恢复参数，开始恢复登录状态")
-            # 解码认证数据
+            logger.info("📥 Found recovery parameters in URL, starting login status recovery")
+            # Decode authentication data
             auth_data = json.loads(base64.b64decode(restore_data).decode())
             
-            # 兼容旧格式（直接是用户信息）和新格式（包含loginTime）
+            # Compatible with old format (direct user info) and new format (includes loginTime)
             if 'userInfo' in auth_data:
                 user_info = auth_data['userInfo']
-                # 使用当前时间作为新的登录时间，避免超时问题
-                # 因为前端已经验证了lastActivity没有超时
+                # Use current time as new login time to avoid timeout issues
+                # Because frontend has already verified lastActivity hasn't timed out
                 login_time = time.time()
             else:
-                # 旧格式兼容
+                # Old format compatibility
                 user_info = auth_data
                 login_time = time.time()
                 
-            logger.info(f"✅ 成功解码用户信息: {user_info.get('username', 'Unknown')}")
-            logger.info(f"🕐 使用当前时间作为登录时间: {login_time}")
+            logger.info(f"✅ Successfully decoded user info: {user_info.get('username', 'Unknown')}")
+            logger.info(f"🕐 Using current time as login time: {login_time}")
             
-            # 恢复登录状态
+            # Restore login status
             if auth_manager.restore_from_cache(user_info, login_time):
-                # 清除URL参数
+                # Clear URL parameters
                 del st.query_params['restore_auth']
-                logger.info(f"✅ 从前端缓存成功恢复用户 {user_info['username']} 的登录状态")
-                logger.info("🧹 已清除URL恢复参数")
-                # 立即重新运行以应用恢复的状态
-                logger.info("🔄 触发页面重新运行")
+                logger.info(f"✅ Successfully restored login status for user {user_info['username']} from frontend cache")
+                logger.info("🧹 URL recovery parameters cleared")
+                # Immediately rerun to apply restored state
+                logger.info("🔄 Triggering page rerun")
                 st.rerun()
             else:
-                logger.error("❌ 恢复登录状态失败")
-                # 恢复失败，清除URL参数
+                logger.error("❌ Failed to restore login status")
+                # Recovery failed, clear URL parameters
                 del st.query_params['restore_auth']
         else:
-            # 如果没有URL参数，注入前端检查脚本
-            logger.info("📝 没有URL恢复参数，注入前端检查脚本")
+            # If no URL parameters, inject frontend check script
+            logger.info("📝 No URL recovery parameters, injecting frontend check script")
             inject_frontend_cache_check()
     except Exception as e:
-        logger.warning(f"⚠️ 处理前端缓存恢复失败: {e}")
-        # 如果恢复失败，清除可能损坏的URL参数
+        logger.warning(f"⚠️ Frontend cache recovery processing failed: {e}")
+        # If recovery fails, clear possibly corrupted URL parameters
         if 'restore_auth' in st.query_params:
             del st.query_params['restore_auth']
 
 def inject_frontend_cache_check():
-    """注入前端缓存检查脚本"""
-    logger.info("📝 准备注入前端缓存检查脚本")
+    """Inject frontend cache check script"""
+    logger.info("📝 Preparing to inject frontend cache check script")
     
-    # 如果已经注入过，不重复注入
+    # If already injected, don't inject again
     if st.session_state.get('cache_script_injected', False):
-        logger.info("⚠️ 前端脚本已注入，跳过重复注入")
+        logger.info("⚠️ Frontend script already injected, skipping duplicate injection")
         return
     
-    # 标记已注入
+    # Mark as injected
     st.session_state.cache_script_injected = True
-    logger.info("✅ 标记前端脚本已注入")
+    logger.info("✅ Marked frontend script as injected")
     
     cache_check_js = """
     <script>
-    // 前端缓存检查和恢复
+    // Frontend cache check and recovery
     function checkAndRestoreAuth() {
-        console.log('🚀 开始执行前端缓存检查');
-        console.log('📍 当前URL:', window.location.href);
+        console.log('🚀 Starting frontend cache check');
+        console.log('📍 Current URL:', window.location.href);
         
         try {
-            // 检查URL中是否已经有restore_auth参数
+            // Check if restore_auth parameter already exists in URL
             const currentUrl = new URL(window.location);
             if (currentUrl.searchParams.has('restore_auth')) {
-                console.log('🔄 URL中已有restore_auth参数，跳过前端检查');
+                console.log('🔄 restore_auth parameter already in URL, skipping frontend check');
                 return;
             }
             
             const authData = localStorage.getItem('tradingagents_auth');
-            console.log('🔍 检查localStorage中的认证数据:', authData ? '存在' : '不存在');
+            console.log('🔍 Checking authentication data in localStorage:', authData ? 'exists' : 'does not exist');
             
             if (!authData) {
-                console.log('🔍 前端缓存中没有登录状态');
+                console.log('🔍 No login status in frontend cache');
                 return;
             }
             
@@ -887,29 +887,29 @@ def main():
             st.session_state.clear()
             st.experimental_rerun()
 
-    # 渲染页面头部
+    # Render page header
     render_header()
 
-    # 侧边栏布局 - 标题在最顶部
-    st.sidebar.title("🤖 TradingAgents-CN")
+    # Sidebar layout - title at the top
+    st.sidebar.title("🤖 TradingAgents")
     st.sidebar.markdown("---")
     
-    # 页面导航 - 在标题下方显示用户信息
+    # Page navigation - display user info below title
     render_sidebar_user_info()
 
-    # 在用户信息和功能导航之间添加分隔线
+    # Add separator between user info and feature navigation
     st.sidebar.markdown("---")
 
-    # 添加功能切换标题
-    st.sidebar.markdown("**🎯 功能导航**")
+    # Add feature switching title
+    st.sidebar.markdown("**🎯 Feature Navigation**")
 
     page = st.sidebar.selectbox(
-        "切换功能模块",
-        ["📊 股票分析", "⚙️ 配置管理", "💾 缓存管理", "💰 Token统计", "📋 操作日志", "📈 分析结果", "🔧 系统状态"],
+        "Switch Feature Module",
+        ["📊 Stock Analysis", "⚙️ Configuration", "💾 Cache Management", "💰 Token Statistics", "📋 Operation Logs", "📈 Analysis Results", "🔧 System Status"],
         label_visibility="collapsed"
     )
     
-    # 记录页面访问活动
+    # Log page visit activity
     try:
         user_activity_logger.log_page_visit(
             page_name=page,
@@ -920,153 +920,153 @@ def main():
             }
         )
     except Exception as e:
-        logger.warning(f"记录页面访问活动失败: {e}")
+        logger.warning(f"Failed to log page visit activity: {e}")
 
-    # 在功能选择和AI模型配置之间添加分隔线
+    # Add separator between feature selection and AI model configuration
     st.sidebar.markdown("---")
 
-    # 根据选择的页面渲染不同内容
-    if page == "⚙️ 配置管理":
-        # 检查配置权限
+    # Render different content based on selected page
+    if page == "⚙️ Configuration":
+        # Check configuration permissions
         if not require_permission("config"):
             return
         try:
             from modules.config_management import render_config_management
             render_config_management()
         except ImportError as e:
-            st.error(f"配置管理模块加载失败: {e}")
-            st.info("请确保已安装所有依赖包")
+            st.error(f"Failed to load configuration management module: {e}")
+            st.info("Please ensure all dependency packages are installed")
         return
-    elif page == "💾 缓存管理":
-        # 检查管理员权限
+    elif page == "💾 Cache Management":
+        # Check administrator permissions
         if not require_permission("admin"):
             return
         try:
             from modules.cache_management import main as cache_main
             cache_main()
         except ImportError as e:
-            st.error(f"缓存管理页面加载失败: {e}")
+            st.error(f"Failed to load cache management page: {e}")
         return
-    elif page == "💰 Token统计":
-        # 检查配置权限
+    elif page == "💰 Token Statistics":
+        # Check configuration permissions
         if not require_permission("config"):
             return
         try:
             from modules.token_statistics import render_token_statistics
             render_token_statistics()
         except ImportError as e:
-            st.error(f"Token统计页面加载失败: {e}")
-            st.info("请确保已安装所有依赖包")
+            st.error(f"Failed to load token statistics page: {e}")
+            st.info("Please ensure all dependency packages are installed")
         return
-    elif page == "📋 操作日志":
-        # 检查管理员权限
+    elif page == "📋 Operation Logs":
+        # Check administrator permissions
         if not require_permission("admin"):
             return
         try:
             from components.operation_logs import render_operation_logs
             render_operation_logs()
         except ImportError as e:
-            st.error(f"操作日志模块加载失败: {e}")
-            st.info("请确保已安装所有依赖包")
+            st.error(f"Failed to load operation logs module: {e}")
+            st.info("Please ensure all dependency packages are installed")
         return
-    elif page == "📈 分析结果":
-        # 检查分析权限
+    elif page == "📈 Analysis Results":
+        # Check analysis permissions
         if not require_permission("analysis"):
             return
         try:
             from components.analysis_results import render_analysis_results
             render_analysis_results()
         except ImportError as e:
-            st.error(f"分析结果模块加载失败: {e}")
-            st.info("请确保已安装所有依赖包")
+            st.error(f"Failed to load analysis results module: {e}")
+            st.info("Please ensure all dependency packages are installed")
         return
-    elif page == "🔧 系统状态":
-        # 检查管理员权限
+    elif page == "🔧 System Status":
+        # Check administrator permissions
         if not require_permission("admin"):
             return
-        st.header("🔧 系统状态")
-        st.info("系统状态功能开发中...")
+        st.header("🔧 System Status")
+        st.info("System status feature is under development...")
         return
 
-    # 默认显示股票分析页面
+    # Default to stock analysis page
     # 检查分析权限
     if not require_permission("analysis"):
         return
         
-    # 检查API密钥
+    # Check API keys
     api_status = check_api_keys()
     
     if not api_status['all_configured']:
-        st.error("⚠️ API密钥配置不完整，请先配置必要的API密钥")
+        st.error("⚠️ API key configuration incomplete, please configure the necessary API keys first")
         
-        with st.expander("📋 API密钥配置指南", expanded=True):
+        with st.expander("📋 API Key Configuration Guide", expanded=True):
             st.markdown("""
-            ### 🔑 必需的API密钥
+            ### 🔑 Required API Keys
             
-            1. **阿里百炼API密钥** (DASHSCOPE_API_KEY)
-               - 获取地址: https://dashscope.aliyun.com/
-               - 用途: AI模型推理
+            1. **Alibaba Dashscope API Key** (DASHSCOPE_API_KEY)
+               - Get from: https://dashscope.aliyun.com/
+               - Purpose: AI model inference
             
-            2. **金融数据API密钥** (FINNHUB_API_KEY)  
-               - 获取地址: https://finnhub.io/
-               - 用途: 获取股票数据
+            2. **Financial Data API Key** (FINNHUB_API_KEY)  
+               - Get from: https://finnhub.io/
+               - Purpose: Get stock data
             
-            ### ⚙️ 配置方法
+            ### ⚙️ Configuration Method
             
-            1. 复制项目根目录的 `.env.example` 为 `.env`
-            2. 编辑 `.env` 文件，填入您的真实API密钥
-            3. 重启Web应用
+            1. Copy `.env.example` to `.env` in the project root directory
+            2. Edit the `.env` file and enter your real API keys
+            3. Restart the web application
             
             ```bash
-            # .env 文件示例
+            # .env file example
             DASHSCOPE_API_KEY=sk-your-dashscope-key
             FINNHUB_API_KEY=your-finnhub-key
             ```
             """)
         
-        # 显示当前API密钥状态
-        st.subheader("🔍 当前API密钥状态")
+        # Display current API key status
+        st.subheader("🔍 Current API Key Status")
         for key, status in api_status['details'].items():
             if status['configured']:
                 st.success(f"✅ {key}: {status['display']}")
             else:
-                st.error(f"❌ {key}: 未配置")
+                st.error(f"❌ {key}: Not configured")
         
         return
     
-    # 渲染侧边栏
+    # Render sidebar
     config = render_sidebar()
     
-    # 添加使用指南显示切换
-    # 如果正在分析或有分析结果，默认隐藏使用指南
+    # Add usage guide display toggle
+    # If analyzing or have analysis results, hide usage guide by default
     default_show_guide = not (st.session_state.get('analysis_running', False) or st.session_state.get('analysis_results') is not None)
     
-    # 如果用户没有手动设置过，使用默认值
+    # If user hasn't manually set preference, use default value
     if 'user_set_guide_preference' not in st.session_state:
         st.session_state.user_set_guide_preference = False
         st.session_state.show_guide_preference = default_show_guide
     
     show_guide = st.sidebar.checkbox(
-        "📖 显示使用指南", 
+        "📖 Show Usage Guide", 
         value=st.session_state.get('show_guide_preference', default_show_guide), 
-        help="显示/隐藏右侧使用指南",
+        help="Show/hide usage guide on the right",
         key="guide_checkbox"
     )
     
-    # 记录用户的选择
+    # Record user's choice
     if show_guide != st.session_state.get('show_guide_preference', default_show_guide):
         st.session_state.user_set_guide_preference = True
         st.session_state.show_guide_preference = show_guide
 
-    # 添加状态清理按钮
+    # Add state cleanup button
     st.sidebar.markdown("---")
-    if st.sidebar.button("🧹 清理分析状态", help="清理僵尸分析状态，解决页面持续刷新问题"):
-        # 清理session state
+    if st.sidebar.button("🧹 Clear Analysis State", help="Clear zombie analysis states to resolve continuous page refresh issues"):
+        # Clear session state
         st.session_state.analysis_running = False
         st.session_state.current_analysis_id = None
         st.session_state.analysis_results = None
 
-        # 清理所有自动刷新状态
+        # Clear all auto-refresh states
         keys_to_remove = []
         for key in st.session_state.keys():
             if 'auto_refresh' in key:
@@ -1075,39 +1075,39 @@ def main():
         for key in keys_to_remove:
             del st.session_state[key]
 
-        # 清理死亡线程
+        # Clean up dead threads
         from utils.thread_tracker import cleanup_dead_analysis_threads
         cleanup_dead_analysis_threads()
 
-        st.sidebar.success("✅ 分析状态已清理")
+        st.sidebar.success("✅ Analysis state cleared")
         st.rerun()
 
-    # 在侧边栏底部添加退出按钮
+    # Add logout button at the bottom of sidebar
     render_sidebar_logout()
 
-    # 主内容区域 - 根据是否显示指南调整布局
+    # Main content area - adjust layout based on whether guide is shown
     if show_guide:
-        col1, col2 = st.columns([2, 1])  # 2:1比例，使用指南占三分之一
+        col1, col2 = st.columns([2, 1])  # 2:1 ratio, usage guide takes one third
     else:
         col1 = st.container()
         col2 = None
     
     with col1:
-        # 1. 分析配置区域
+        # 1. Analysis configuration area
 
-        st.header("⚙️ 分析配置")
+        st.header("⚙️ Analysis Configuration")
 
-        # 渲染分析表单
+        # Render analysis form
         try:
             form_data = render_analysis_form()
 
-            # 验证表单数据格式
+            # Validate form data format
             if not isinstance(form_data, dict):
-                st.error(f"⚠️ 表单数据格式异常: {type(form_data)}")
+                st.error(f"⚠️ Form data format error: {type(form_data)}")
                 form_data = {'submitted': False}
 
         except Exception as e:
-            st.error(f"❌ 表单渲染失败: {e}")
+            st.error(f"❌ Form rendering failed: {e}")
             form_data = {'submitted': False}
 
         # 避免显示调试信息
@@ -1132,7 +1132,7 @@ def main():
                 analysis_date=form_data['analysis_date'],
                 analysts=form_data['analysts'],
                 research_depth=form_data['research_depth'],
-                market_type=form_data.get('market_type', '美股')
+                market_type=form_data.get('market_type', 'US Stock')
             )
 
             if not is_valid:
@@ -1162,7 +1162,7 @@ def main():
                     analysis_id=analysis_id,
                     status="running",
                     stock_symbol=form_data['stock_symbol'],
-                    market_type=form_data.get('market_type', '美股'),
+                    market_type=form_data.get('market_type', 'US Stock'),
                     form_config=form_config
                 )
 
@@ -1185,7 +1185,7 @@ def main():
                 with st.spinner("🔄 正在初始化分析..."):
                     time.sleep(1.5)  # 让用户看到反馈
 
-                st.info(f"📊 正在分析: {form_data.get('market_type', '美股')} {form_data['stock_symbol']}")
+                st.info(f"📊 正在分析: {form_data.get('market_type', 'US Stock')} {form_data['stock_symbol']}")
                 st.info("""
                 ⏱️ 页面将在6秒后自动刷新...
 
@@ -1200,7 +1200,7 @@ def main():
                 st.session_state.analysis_running = True
                 st.session_state.current_analysis_id = analysis_id
                 st.session_state.last_stock_symbol = form_data['stock_symbol']
-                st.session_state.last_market_type = form_data.get('market_type', '美股')
+                st.session_state.last_market_type = form_data.get('market_type', 'US Stock')
 
                 # 自动启用自动刷新选项（设置所有可能的key）
                 auto_refresh_keys = [
@@ -1223,7 +1223,7 @@ def main():
                             analysts=form_data['analysts'],
                             research_depth=form_data['research_depth'],
                             llm_provider=config['llm_provider'],
-                            market_type=form_data.get('market_type', '美股'),
+                            market_type=form_data.get('market_type', 'US Stock'),
                             llm_model=config['llm_model'],
                             progress_callback=progress_callback
                         )
@@ -1420,7 +1420,7 @@ def main():
 
         # 检查是否应该显示分析报告
         # 1. 有分析结果且不在运行中
-        # 2. 或者用户点击了"查看报告"按钮
+        # 2. 或者用户点击了"View Report"按钮
         show_results_button_clicked = st.session_state.get('show_analysis_results', False)
 
         should_show_results = (

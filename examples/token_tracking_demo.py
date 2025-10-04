@@ -74,7 +74,7 @@ def display_current_statistics():
     print_separator("当前使用统计")
     
     # 获取不同时间段的统计
-    periods = [(1, "今日"), (7, "本周"), (30, "本月")]
+    periods = [(1, "今日"), (7, "This Week"), (30, "This Month")]
     
     for days, period_name in periods:
         stats = config_manager.get_usage_statistics(days)

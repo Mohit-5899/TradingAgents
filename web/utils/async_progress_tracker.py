@@ -244,8 +244,8 @@ class AsyncProgressTracker:
     def _get_analyst_display_name(self, analyst: str) -> str:
         """获取分析师显示名称（保留兼容性）"""
         name_map = {
-            'market': '市场分析师',
-            'fundamentals': '基本面分析师',
+            'market': 'Market Analyst',
+            'fundamentals': 'Fundamentals Analyst',
             'technical': '技术分析师',
             'sentiment': '情绪分析师',
             'risk': '风险分析师'
@@ -412,15 +412,15 @@ class AsyncProgressTracker:
         elif "模块开始" in message:
             # 从日志中提取分析师类型，匹配新的步骤名称
             if "market_analyst" in message or "market" in message:
-                return self._find_step_by_keyword(["市场分析", "市场"])
+                return self._find_step_by_keyword(["Market Analysis", "市场"])
             elif "fundamentals_analyst" in message or "fundamentals" in message:
-                return self._find_step_by_keyword(["基本面分析", "基本面"])
+                return self._find_step_by_keyword(["Fundamentals Analysis", "基本面"])
             elif "technical_analyst" in message or "technical" in message:
-                return self._find_step_by_keyword(["技术分析", "技术"])
+                return self._find_step_by_keyword(["Technical Analysis", "技术"])
             elif "sentiment_analyst" in message or "sentiment" in message:
                 return self._find_step_by_keyword(["情绪分析", "情绪"])
             elif "news_analyst" in message or "news" in message:
-                return self._find_step_by_keyword(["新闻分析", "新闻"])
+                return self._find_step_by_keyword(["News Analysis", "新闻"])
             elif "social_media_analyst" in message or "social" in message:
                 return self._find_step_by_keyword(["社交媒体", "社交"])
             elif "risk_analyst" in message or "risk" in message:

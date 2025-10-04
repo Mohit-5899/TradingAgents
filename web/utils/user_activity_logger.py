@@ -47,8 +47,8 @@ class UserActivityLogger:
         # 活动类型定义
         self.activity_types = {
             "auth": "认证相关",
-            "analysis": "股票分析",
-            "config": "配置管理", 
+            "analysis": "Stock Analysis",
+            "config": "Configuration", 
             "navigation": "页面导航",
             "data_export": "数据导出",
             "user_management": "用户管理",

@@ -1,176 +1,176 @@
-# TradingAgents 中文增强版
+# TradingAgents Enhanced Edition
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Version](https://img.shields.io/badge/Version-cn--0.1.15-green.svg)](./VERSION)
-[![Documentation](https://img.shields.io/badge/docs-中文文档-green.svg)](./docs/)
-[![Original](https://img.shields.io/badge/基于-TauricResearch/TradingAgents-orange.svg)](https://github.com/TauricResearch/TradingAgents)
+[![Version](https://img.shields.io/badge/Version-en--0.1.15-green.svg)](./VERSION)
+[![Documentation](https://img.shields.io/badge/docs-Documentation-green.svg)](./docs/)
+[![Original](https://img.shields.io/badge/Based%20on-TauricResearch/TradingAgents-orange.svg)](https://github.com/TauricResearch/TradingAgents)
 
-> 🚀 **最新版本 cn-0.1.15**: 开发者体验与LLM生态系统大升级！新增千帆大模型支持、完整开发工具链、学术研究资料、企业级工作流规范！
+> 🚀 **Latest Version en-0.1.15**: Major upgrade to developer experience and LLM ecosystem! New Qianfan model support, complete development toolchain, academic research materials, enterprise-grade workflow standards!
 >
-> 🎯 **核心功能**: 原生OpenAI支持 | Google AI全面集成 | 自定义端点配置 | 智能模型选择 | 多LLM提供商支持 | 模型选择持久化 | Docker容器化部署 | 专业报告导出 | 完整A股支持 | 中文本地化
+> 🎯 **Core Features**: Native OpenAI Support | Full Google AI Integration | Custom Endpoint Configuration | Smart Model Selection | Multi-LLM Provider Support | Model Selection Persistence | Docker Containerized Deployment | Professional Report Export | Complete Global Stock Market Support | Multi-language Support
 
-基于多智能体大语言模型的**中文金融交易决策框架**。专为中文用户优化，提供完整的A股/港股/美股分析能力。
+A **Multi-Agent Large Language Model Financial Trading Decision Framework**. Optimized for global users, providing comprehensive analysis capabilities for A-shares, Hong Kong stocks, US stocks, and international markets.
 
-## 🙏 致敬源项目
+## 🙏 Tribute to the Original Project
 
-感谢 [Tauric Research](https://github.com/TauricResearch) 团队创造的革命性多智能体交易框架 [TradingAgents](https://github.com/TauricResearch/TradingAgents)！
+Thanks to the [Tauric Research](https://github.com/TauricResearch) team for creating the revolutionary multi-agent trading framework [TradingAgents](https://github.com/TauricResearch/TradingAgents)!
 
-**🎯 我们的使命**: 为中国用户提供完整的中文化体验，支持A股/港股市场，集成国产大模型，推动AI金融技术在中文社区的普及应用。
+**🎯 Our Mission**: To provide a complete experience for global users, support A-share/Hong Kong stock markets, integrate leading large models, and promote the popularization of AI financial technology in the community.
 
-## 🆕 v0.1.15 重大更新
+## 🆕 v0.1.15 Major Updates
 
-### 🤖 LLM生态系统大升级
+### 🤖 LLM Ecosystem Major Upgrade
 
-- **千帆大模型支持**: 新增百度千帆(ERNIE)大模型完整集成
-- **LLM适配器重构**: 统一的OpenAI兼容适配器架构
-- **多厂商支持**: 支持更多国产大模型提供商
-- **集成指南**: 完整的LLM集成开发文档和测试工具
+- **Qianfan Model Support**: New Baidu Qianfan (ERNIE) large model complete integration
+- **LLM Adapter Refactoring**: Unified OpenAI-compatible adapter architecture
+- **Multi-Vendor Support**: Support for more leading large model providers
+- **Integration Guide**: Complete LLM integration development documentation and testing tools
 
-### 📚 学术研究支持
+### 📚 Academic Research Support
 
-- **TradingAgents论文**: 完整的中文翻译版本和深度解读
-- **技术博客**: 详细的技术分析和实现原理解读
-- **学术资料**: PDF论文和相关研究资料
-- **引用支持**: 标准的学术引用格式和参考文献
+- **TradingAgents Paper**: Complete translation and in-depth interpretation
+- **Technical Blog**: Detailed technical analysis and implementation principle interpretation
+- **Academic Materials**: PDF papers and related research materials
+- **Citation Support**: Standard academic citation format and references
 
-### 🛠️ 开发者体验升级
+### 🛠️ Developer Experience Upgrade
 
-- **开发工作流**: 标准化的开发流程和分支管理规范
-- **安装验证**: 完整的安装测试和验证脚本
-- **文档重构**: 结构化的文档系统和快速开始指南
-- **PR模板**: 标准化的Pull Request模板和代码审查流程
+- **Development Workflow**: Standardized development process and branch management standards
+- **Installation Verification**: Complete installation testing and verification scripts
+- **Documentation Refactoring**: Structured documentation system and quick start guide
+- **PR Templates**: Standardized Pull Request templates and code review process
 
-### 🔧 企业级工具链
+### 🔧 Enterprise-Grade Toolchain
 
-- **分支保护**: GitHub分支保护策略和安全规则
-- **紧急程序**: 完整的紧急处理和故障恢复程序
-- **测试框架**: 增强的测试覆盖和验证工具
-- **部署指南**: 企业级部署和配置管理
+- **Branch Protection**: GitHub branch protection strategies and security rules
+- **Emergency Procedures**: Complete emergency handling and fault recovery procedures
+- **Testing Framework**: Enhanced test coverage and verification tools
+- **Deployment Guide**: Enterprise-grade deployment and configuration management
 
-## 📋 v0.1.14 功能回顾
+## 📋 v0.1.14 Feature Review
 
-### 👥 用户权限管理系统
+### 👥 User Permission Management System
 
-- **完整用户管理**: 新增用户注册、登录、权限控制功能
-- **角色权限**: 支持多级用户角色和权限管理
-- **会话管理**: 安全的用户会话和状态管理
-- **用户活动日志**: 完整的用户操作记录和审计功能
+- **Complete User Management**: New user registration, login, permission control features
+- **Role Permissions**: Support for multi-level user roles and permission management
+- **Session Management**: Secure user session and state management
+- **User Activity Log**: Complete user operation recording and audit functionality
 
-### 🔐 Web用户认证系统
+### 🔐 Web User Authentication System
 
-- **登录组件**: 现代化的用户登录界面
-- **认证管理器**: 统一的用户认证和授权管理
-- **安全增强**: 密码加密、会话安全等安全机制
-- **用户仪表板**: 个性化的用户活动仪表板
+- **Login Component**: Modern user login interface
+- **Authentication Manager**: Unified user authentication and authorization management
+- **Security Enhancement**: Password encryption, session security and other security mechanisms
+- **User Dashboard**: Personalized user activity dashboard
 
-### 🗄️ 数据管理优化
+### 🗄️ Data Management Optimization
 
-- **MongoDB集成增强**: 改进的MongoDB连接和数据管理
-- **数据目录重组**: 优化的数据存储结构和管理
-- **数据迁移脚本**: 完整的数据迁移和备份工具
-- **缓存优化**: 提升数据加载和分析结果缓存性能
+- **MongoDB Integration Enhancement**: Improved MongoDB connection and data management
+- **Data Directory Reorganization**: Optimized data storage structure and management
+- **Data Migration Scripts**: Complete data migration and backup tools
+- **Cache Optimization**: Improved data loading and analysis result cache performance
 
-### 🧪 测试覆盖增强
+### 🧪 Test Coverage Enhancement
 
-- **功能测试脚本**: 新增6个专项功能测试脚本
-- **工具处理器测试**: Google工具处理器修复验证
-- **引导自动隐藏测试**: UI交互功能测试
-- **在线工具配置测试**: 工具配置和选择逻辑测试
-- **真实场景测试**: 实际使用场景的端到端测试
-- **美股独立性测试**: 美股分析功能独立性验证
+- **Functional Test Scripts**: Added 6 specialized functional test scripts
+- **Tool Handler Testing**: Google tool handler fix verification
+- **Auto-hide Guidance Testing**: UI interaction functionality testing
+- **Online Tool Configuration Testing**: Tool configuration and selection logic testing
+- **Real Scenario Testing**: End-to-end testing of actual use scenarios
+- **US Stock Independence Testing**: US stock analysis functionality independence verification
 
 ---
 
-## 🆕 v0.1.13 重大更新
+## 🆕 v0.1.13 Major Updates
 
-### 🤖 原生OpenAI端点支持
+### 🤖 Native OpenAI Endpoint Support
 
-- **自定义OpenAI端点**: 支持配置任意OpenAI兼容的API端点
-- **灵活模型选择**: 可以使用任何OpenAI格式的模型，不限于官方模型
-- **智能适配器**: 新增原生OpenAI适配器，提供更好的兼容性和性能
-- **配置管理**: 统一的端点和模型配置管理系统
+- **Custom OpenAI Endpoint**: Support for configuring any OpenAI-compatible API endpoint
+- **Flexible Model Selection**: Can use any OpenAI format model, not limited to official models
+- **Smart Adapter**: New native OpenAI adapter, providing better compatibility and performance
+- **Configuration Management**: Unified endpoint and model configuration management system
 
-### 🧠 Google AI生态系统全面集成
+### 🧠 Google AI Ecosystem Full Integration
 
-- **三大Google AI包支持**: langchain-google-genai、google-generativeai、google-genai
-- **9个验证模型**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash等最新模型
-- **Google工具处理器**: 专门的Google AI工具调用处理器
-- **智能降级机制**: 高级功能失败时自动降级到基础功能
+- **Three Major Google AI Packages Support**: langchain-google-genai, google-generativeai, google-genai
+- **9 Verified Models**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash and other latest models
+- **Google Tool Handler**: Dedicated Google AI tool invocation handler
+- **Smart Degradation Mechanism**: Automatic degradation to basic features when advanced features fail
 
-### 🔧 LLM适配器架构优化
+### 🔧 LLM Adapter Architecture Optimization
 
-- **GoogleOpenAIAdapter**: 新增Google AI的OpenAI兼容适配器
-- **统一接口**: 所有LLM提供商使用统一的调用接口
-- **错误处理增强**: 改进的异常处理和自动重试机制
-- **性能监控**: 添加LLM调用性能监控和统计
+- **GoogleOpenAIAdapter**: New Google AI OpenAI-compatible adapter
+- **Unified Interface**: All LLM providers use a unified invocation interface
+- **Error Handling Enhancement**: Improved exception handling and automatic retry mechanism
+- **Performance Monitoring**: Added LLM invocation performance monitoring and statistics
 
-### 🎨 Web界面智能优化
+### 🎨 Web Interface Smart Optimization
 
-- **智能模型选择**: 根据可用性自动选择最佳模型
-- **KeyError修复**: 彻底解决模型选择中的KeyError问题
-- **UI响应优化**: 改进模型切换的响应速度和用户体验
-- **错误提示**: 更友好的错误提示和解决建议
+- **Smart Model Selection**: Automatically select the best model based on availability
+- **KeyError Fix**: Completely solve KeyError issues in model selection
+- **UI Response Optimization**: Improved model switching response speed and user experience
+- **Error Prompts**: More friendly error prompts and solution suggestions
 
-## 🆕 v0.1.12 重大更新
+## 🆕 v0.1.12 Major Updates
 
-### 🧠 智能新闻分析模块
+### 🧠 Smart News Analysis Module
 
-- **智能新闻过滤器**: 基于AI的新闻相关性评分和质量评估
-- **多层次过滤机制**: 基础过滤、增强过滤、集成过滤三级处理
-- **新闻质量评估**: 自动识别和过滤低质量、重复、无关新闻
-- **统一新闻工具**: 整合多个新闻源，提供统一的新闻获取接口
+- **Smart News Filter**: AI-based news relevance scoring and quality assessment
+- **Multi-level Filtering Mechanism**: Three-tier processing with basic, enhanced, and integrated filtering
+- **News Quality Assessment**: Automatic identification and filtering of low-quality, duplicate, and irrelevant news
+- **Unified News Tool**: Integrate multiple news sources, providing a unified news acquisition interface
 
-### 🔧 技术修复和优化
+### 🔧 Technical Fixes and Optimizations
 
-- **DashScope适配器修复**: 解决工具调用兼容性问题
-- **DeepSeek死循环修复**: 修复新闻分析师的无限循环问题
-- **LLM工具调用增强**: 提升工具调用的可靠性和稳定性
-- **新闻检索器优化**: 增强新闻数据获取和处理能力
+- **DashScope Adapter Fix**: Resolve tool invocation compatibility issues
+- **DeepSeek Infinite Loop Fix**: Fix infinite loop problem in news analyst
+- **LLM Tool Invocation Enhancement**: Improve tool invocation reliability and stability
+- **News Retriever Optimization**: Enhanced news data acquisition and processing capabilities
 
-### 📚 完善测试和文档
+### 📚 Improved Testing and Documentation
 
-- **全面测试覆盖**: 新增15+个测试文件，覆盖所有新功能
-- **详细技术文档**: 新增8个技术分析报告和修复文档
-- **用户指南完善**: 新增新闻过滤使用指南和最佳实践
-- **演示脚本**: 提供完整的新闻过滤功能演示
+- **Comprehensive Test Coverage**: Added 15+ test files covering all new features
+- **Detailed Technical Documentation**: Added 8 technical analysis reports and fix documentation
+- **User Guide Improvement**: Added news filtering usage guide and best practices
+- **Demo Scripts**: Provide complete news filtering feature demonstrations
 
-### 🗂️ 项目结构优化
+### 🗂️ Project Structure Optimization
 
-- **文档分类整理**: 按功能将文档分类到docs子目录
-- **示例代码归位**: 演示脚本统一到examples目录
-- **根目录整洁**: 保持根目录简洁，提升项目专业度
+- **Documentation Organization**: Organize documents by function into docs subdirectory
+- **Example Code Organization**: Unified demo scripts to examples directory
+- **Clean Root Directory**: Keep root directory clean, enhance project professionalism
 
-## 🎯 核心特性
+## 🎯 Core Features
 
-### 🤖 多智能体协作架构
+### 🤖 Multi-Agent Collaborative Architecture
 
-- **专业分工**: 基本面、技术面、新闻面、社交媒体四大分析师
-- **结构化辩论**: 看涨/看跌研究员进行深度分析
-- **智能决策**: 交易员基于所有输入做出最终投资建议
-- **风险管理**: 多层次风险评估和管理机制
+- **Professional Division**: Four major analysts - fundamental, technical, news, and social media
+- **Structured Debate**: Bullish/bearish researchers conduct in-depth analysis
+- **Smart Decision Making**: Traders make final investment recommendations based on all inputs
+- **Risk Management**: Multi-level risk assessment and management mechanisms
 
-## 🖥️ Web界面展示
+## 🖥️ Web Interface Showcase
 
-### 📸 界面截图
+### 📸 Interface Screenshots
 
-> 🎨 **现代化Web界面**: 基于Streamlit构建的响应式Web应用，提供直观的股票分析体验
+> 🎨 **Modern Web Interface**: Responsive web application built on Streamlit, providing intuitive stock analysis experience
 
-#### 🏠 主界面 - 分析配置
+#### 🏠 Main Interface - Analysis Configuration
 
 ![1755003162925](images/README/1755003162925.png)
 
 ![1755002619976](images/README/1755002619976.png)
 
-*智能配置面板，支持多市场股票分析，5级研究深度选择*
+*Smart configuration panel, supports multi-market stock analysis, 5-level research depth selection*
 
-#### 📊 实时分析进度
+#### 📊 Real-time Analysis Progress
 
 ![1755002731483](images/README/1755002731483.png)
 
-*实时进度跟踪，可视化分析过程，智能时间预估*
+*Real-time progress tracking, visualized analysis process, smart time estimation*
 
-#### 📈 分析结果展示
+#### 📈 Analysis Results Display
 
 ![1755002901204](images/README/1755002901204.png)
 
@@ -194,502 +194,502 @@
 
 ![1755003090603](images/README/1755003090603.png)
 
-*专业投资报告，多维度分析结果，一键导出功能*
+*Professional investment reports, multi-dimensional analysis results, one-click export functionality*
 
-### 🎯 核心功能特色
+### 🎯 Core Feature Highlights
 
-#### 📋 **智能分析配置**
+#### 📋 **Smart Analysis Configuration**
 
-- **🌍 多市场支持**: 美股、A股、港股一站式分析
-- **🎯 5级研究深度**: 从2分钟快速分析到25分钟全面研究
-- **🤖 智能体选择**: 市场技术、基本面、新闻、社交媒体分析师
-- **📅 灵活时间设置**: 支持历史任意时间点分析
+- **🌍 Multi-Market Support**: One-stop analysis for US stocks, A-shares, and Hong Kong stocks
+- **🎯 5-Level Research Depth**: From 2-minute quick analysis to 25-minute comprehensive research
+- **🤖 Agent Selection**: Market technical, fundamental, news, and social media analysts
+- **📅 Flexible Time Settings**: Support analysis at any historical time point
 
-#### 🚀 **实时进度跟踪**
+#### 🚀 **Real-time Progress Tracking**
 
-- **📊 可视化进度**: 实时显示分析进展和剩余时间
-- **🔄 智能步骤识别**: 自动识别当前分析阶段
-- **⏱️ 准确时间预估**: 基于历史数据的智能时间计算
-- **💾 状态持久化**: 页面刷新不丢失分析进度
+- **📊 Visualized Progress**: Real-time display of analysis progress and remaining time
+- **🔄 Smart Step Recognition**: Automatically identify current analysis stage
+- **⏱️ Accurate Time Estimation**: Smart time calculation based on historical data
+- **💾 State Persistence**: Analysis progress not lost on page refresh
 
-#### 📈 **专业结果展示**
+#### 📈 **Professional Results Display**
 
-- **🎯 投资决策**: 明确的买入/持有/卖出建议
-- **📊 多维分析**: 技术面、基本面、新闻面综合评估
-- **🔢 量化指标**: 置信度、风险评分、目标价位
-- **📄 专业报告**: 支持Markdown/Word/PDF格式导出
+- **🎯 Investment Decisions**: Clear buy/hold/sell recommendations
+- **📊 Multi-dimensional Analysis**: Comprehensive evaluation of technical, fundamental, and news aspects
+- **🔢 Quantitative Indicators**: Confidence level, risk score, target price
+- **📄 Professional Reports**: Support Markdown/Word/PDF format export
 
-#### 🤖 **多LLM模型管理**
+#### 🤖 **Multi-LLM Model Management**
 
-- **🌐 4大提供商**: DashScope、DeepSeek、Google AI、OpenRouter
-- **🎯 60+模型选择**: 从经济型到旗舰级模型全覆盖
-- **💾 配置持久化**: URL参数存储，刷新保持设置
-- **⚡ 快速切换**: 5个热门模型一键选择按钮
+- **🌐 4 Major Providers**: DashScope, DeepSeek, Google AI, OpenRouter
+- **🎯 60+ Model Selection**: Full coverage from economy to flagship models
+- **💾 Configuration Persistence**: URL parameter storage, settings maintained on refresh
+- **⚡ Quick Switch**: 5 popular model one-click selection buttons
 
-### 🎮 Web界面操作指南
+### 🎮 Web Interface User Guide
 
-#### 🚀 **快速开始流程**
+#### 🚀 **Quick Start Process**
 
-1. **启动应用**: `python start_web.py` 或 `docker-compose up -d`
-2. **访问界面**: 浏览器打开 `http://localhost:8501`
-3. **配置模型**: 侧边栏选择LLM提供商和模型
-4. **输入股票**: 输入股票代码（如 AAPL、000001、0700.HK）
-5. **选择深度**: 根据需求选择1-5级研究深度
-6. **开始分析**: 点击"🚀 开始分析"按钮
-7. **查看结果**: 实时跟踪进度，查看分析报告
-8. **导出报告**: 一键导出专业格式报告
+1. **Launch Application**: `python start_web.py` or `docker-compose up -d`
+2. **Access Interface**: Open browser to `http://localhost:8501`
+3. **Configure Model**: Select LLM provider and model in sidebar
+4. **Input Stock**: Enter stock symbol (e.g., AAPL, 000001, 0700.HK)
+5. **Select Depth**: Choose 1-5 level research depth based on needs
+6. **Start Analysis**: Click "🚀 Start Analysis" button
+7. **View Results**: Track real-time progress and view analysis report
+8. **Export Report**: One-click export professional format reports
 
-#### 📊 **支持的股票代码格式**
+#### 📊 **Supported Stock Symbol Formats**
 
-- **🇺🇸 美股**: `AAPL`, `TSLA`, `MSFT`, `NVDA`, `GOOGL`
-- **🇨🇳 A股**: `000001`, `600519`, `300750`, `002415`
-- **🇭🇰 港股**: `0700.HK`, `9988.HK`, `3690.HK`, `1810.HK`
+- **🇺🇸 US Stocks**: `AAPL`, `TSLA`, `MSFT`, `NVDA`, `GOOGL`
+- **🇨🇳 A-Shares**: `000001`, `600519`, `300750`, `002415`
+- **🇭🇰 Hong Kong Stocks**: `0700.HK`, `9988.HK`, `3690.HK`, `1810.HK`
 
-#### 🎯 **研究深度说明**
+#### 🎯 **Research Depth Explanation**
 
-- **1级 (2-4分钟)**: 快速概览，基础技术指标
-- **2级 (4-6分钟)**: 标准分析，技术+基本面
-- **3级 (6-10分钟)**: 深度分析，加入新闻情绪 ⭐ **推荐**
-- **4级 (10-15分钟)**: 全面分析，多轮智能体辩论
-- **5级 (15-25分钟)**: 最深度分析，完整研究报告
+- **Level 1 (2-4 minutes)**: Quick overview, basic technical indicators
+- **Level 2 (4-6 minutes)**: Standard analysis, technical + fundamental
+- **Level 3 (6-10 minutes)**: Deep analysis, includes news sentiment ⭐ **Recommended**
+- **Level 4 (10-15 minutes)**: Comprehensive analysis, multi-round agent debate
+- **Level 5 (15-25 minutes)**: Deepest analysis, complete research report
 
-#### 💡 **使用技巧**
+#### 💡 **Usage Tips**
 
-- **🔄 实时刷新**: 分析过程中可随时刷新页面，进度不丢失
-- **📱 移动适配**: 支持手机和平板设备访问
-- **🎨 深色模式**: 自动适配系统主题设置
-- **⌨️ 快捷键**: 支持Enter键快速提交分析
-- **📋 历史记录**: 自动保存最近的分析配置
+- **🔄 Real-time Refresh**: Can refresh page anytime during analysis, progress not lost
+- **📱 Mobile Compatibility**: Supports mobile phone and tablet access
+- **🎨 Dark Mode**: Automatically adapts to system theme settings
+- **⌨️ Keyboard Shortcuts**: Support Enter key for quick analysis submission
+- **📋 History**: Automatically saves recent analysis configurations
 
-> 📖 **详细指南**: 完整的Web界面使用说明请参考 [🖥️ Web界面详细使用指南](docs/usage/web-interface-detailed-guide.md)
+> 📖 **Detailed Guide**: For complete web interface usage instructions, refer to [🖥️ Web Interface Detailed User Guide](docs/usage/web-interface-detailed-guide.md)
 
-## 🎯 功能特性
+## 🎯 Features
 
-### 🚀  智能新闻分析✨ **v0.1.12重大升级**
+### 🚀 Smart News Analysis✨ **v0.1.12 Major Upgrade**
 
 
-| 功能特性               | 状态        | 详细说明                                 |
+| Feature               | Status        | Detailed Description                                 |
 | ---------------------- | ----------- | ---------------------------------------- |
-| **🧠 智能新闻分析**    | 🆕 v0.1.12  | AI新闻过滤，质量评估，相关性分析         |
-| **🔧 新闻过滤器**      | 🆕 v0.1.12  | 多层次过滤，基础/增强/集成三级处理       |
-| **📰 统一新闻工具**    | 🆕 v0.1.12  | 整合多源新闻，统一接口，智能检索         |
-| **🤖 多LLM提供商**     | 🆕 v0.1.11  | 4大提供商，60+模型，智能分类管理         |
-| **💾 模型选择持久化**  | 🆕 v0.1.11  | URL参数存储，刷新保持，配置分享          |
-| **🎯 快速选择按钮**    | 🆕 v0.1.11  | 一键切换热门模型，提升操作效率           |
-| **📊 实时进度显示**    | ✅ v0.1.10  | 异步进度跟踪，智能步骤识别，准确时间计算 |
-| **💾 智能会话管理**    | ✅ v0.1.10  | 状态持久化，自动降级，跨页面恢复         |
-| **🎯 一键查看报告**    | ✅ v0.1.10  | 分析完成后一键查看，智能结果恢复         |
-| **🖥️ Streamlit界面** | ✅ 完整支持 | 现代化响应式界面，实时交互和数据可视化   |
-| **⚙️ 配置管理**      | ✅ 完整支持 | Web端API密钥管理，模型选择，参数配置     |
+| **🧠 Smart News Analysis**    | 🆕 v0.1.12  | AI news filtering, quality assessment, relevance analysis         |
+| **🔧 News Filter**      | 🆕 v0.1.12  | Multi-level filtering, basic/enhanced/integrated three-tier processing       |
+| **📰 Unified News Tool**    | 🆕 v0.1.12  | Integrate multi-source news, unified interface, smart retrieval         |
+| **🤖 Multi-LLM Providers**     | 🆕 v0.1.11  | 4 major providers, 60+ models, smart classification management         |
+| **💾 Model Selection Persistence**  | 🆕 v0.1.11  | URL parameter storage, refresh retention, configuration sharing          |
+| **🎯 Quick Selection Buttons**    | 🆕 v0.1.11  | One-click switch popular models, improve operation efficiency           |
+| **📊 Real-time Progress Display**    | ✅ v0.1.10  | Async progress tracking, smart step recognition, accurate time calculation |
+| **💾 Smart Session Management**    | ✅ v0.1.10  | State persistence, automatic degradation, cross-page recovery         |
+| **🎯 One-click View Report**    | ✅ v0.1.10  | One-click view after analysis completion, smart result recovery         |
+| **🖥️ Streamlit Interface** | ✅ Full Support | Modern responsive interface, real-time interaction and data visualization   |
+| **⚙️ Configuration Management**      | ✅ Full Support | Web-based API key management, model selection, parameter configuration     |
 
-### 🎨 CLI用户体验 ✨ **v0.1.9优化**
+### 🎨 CLI User Experience ✨ **v0.1.9 Optimization**
 
 
-| 功能特性                | 状态        | 详细说明                             |
+| Feature                | Status        | Detailed Description                             |
 | ----------------------- | ----------- | ------------------------------------ |
-| **🖥️ 界面与日志分离** | ✅ 完整支持 | 用户界面清爽美观，技术日志独立管理   |
-| **🔄 智能进度显示**     | ✅ 完整支持 | 多阶段进度跟踪，防止重复提示         |
-| **⏱️ 时间预估功能**   | ✅ 完整支持 | 智能分析阶段显示预计耗时             |
-| **🌈 Rich彩色输出**     | ✅ 完整支持 | 彩色进度指示，状态图标，视觉效果提升 |
+| **🖥️ Interface and Log Separation** | ✅ Full Support | Clean and beautiful user interface, independent technical log management   |
+| **🔄 Smart Progress Display**     | ✅ Full Support | Multi-stage progress tracking, prevent duplicate prompts         |
+| **⏱️ Time Estimation Function**   | ✅ Full Support | Smart analysis stage display estimated time             |
+| **🌈 Rich Color Output**     | ✅ Full Support | Color progress indicators, status icons, visual effect enhancement |
 
-### 🧠 LLM模型支持 ✨ **v0.1.13全面升级**
+### 🧠 LLM Model Support ✨ **v0.1.13 Comprehensive Upgrade**
 
 
-| 模型提供商        | 支持模型                     | 特色功能                | 新增功能 |
+| Model Provider        | Supported Models                     | Featured Functions                | New Features |
 | ----------------- | ---------------------------- | ----------------------- | -------- |
-| **🇨🇳 阿里百炼** | qwen-turbo/plus/max          | 中文优化，成本效益高    | ✅ 集成  |
-| **🇨🇳 DeepSeek** | deepseek-chat                | 工具调用，性价比极高    | ✅ 集成  |
-| **🌍 Google AI**  | **9个验证模型**              | 最新Gemini 2.5系列      | 🆕 升级  |
-| ├─**最新旗舰**  | gemini-2.5-pro/flash         | 最新旗舰，超快响应      | 🆕 新增  |
-| ├─**稳定推荐**  | gemini-2.0-flash             | 推荐使用，平衡性能      | 🆕 新增  |
-| ├─**经典强大**  | gemini-1.5-pro/flash         | 经典稳定，高质量分析    | ✅ 集成  |
-| └─**轻量快速**  | gemini-2.5-flash-lite        | 轻量级任务，快速响应    | 🆕 新增  |
-| **🌐 原生OpenAI** | **自定义端点支持**           | 任意OpenAI兼容端点      | 🆕 新增  |
-| **🌐 OpenRouter** | **60+模型聚合平台**          | 一个API访问所有主流模型 | ✅ 集成  |
-| ├─**OpenAI**    | o4-mini-high, o3-pro, GPT-4o | 最新o系列，推理专业版   | ✅ 集成  |
-| ├─**Anthropic** | Claude 4 Opus/Sonnet/Haiku   | 顶级性能，平衡版本      | ✅ 集成  |
-| ├─**Meta**      | Llama 4 Maverick/Scout       | 最新Llama 4系列         | ✅ 集成  |
-| └─**自定义**    | 任意OpenRouter模型ID         | 无限扩展，个性化选择    | ✅ 集成  |
+| **🇨🇳 Alibaba Qwen** | qwen-turbo/plus/max          | Leading optimization, cost-effective    | ✅ Integrated  |
+| **🇨🇳 DeepSeek** | deepseek-chat                | Tool invocation, extremely cost-effective    | ✅ Integrated  |
+| **🌍 Google AI**  | **9 Verified Models**              | Latest Gemini 2.5 series      | 🆕 Upgraded  |
+| ├─**Latest Flagship**  | gemini-2.5-pro/flash         | Latest flagship, ultra-fast response      | 🆕 New  |
+| ├─**Stable Recommended**  | gemini-2.0-flash             | Recommended, balanced performance      | 🆕 New  |
+| ├─**Classic Powerful**  | gemini-1.5-pro/flash         | Classic stable, high-quality analysis    | ✅ Integrated  |
+| └─**Lightweight Fast**  | gemini-2.5-flash-lite        | Lightweight tasks, fast response    | 🆕 New  |
+| **🌐 Native OpenAI** | **Custom Endpoint Support**           | Any OpenAI-compatible endpoint      | 🆕 New  |
+| **🌐 OpenRouter** | **60+ Model Aggregation Platform**          | Access all mainstream models with one API | ✅ Integrated  |
+| ├─**OpenAI**    | o4-mini-high, o3-pro, GPT-4o | Latest o-series, reasoning professional version   | ✅ Integrated  |
+| ├─**Anthropic** | Claude 4 Opus/Sonnet/Haiku   | Top performance, balanced version      | ✅ Integrated  |
+| ├─**Meta**      | Llama 4 Maverick/Scout       | Latest Llama 4 series         | ✅ Integrated  |
+| └─**Custom**    | Any OpenRouter model ID         | Unlimited expansion, personalized selection    | ✅ Integrated  |
 
-**🎯 快速选择**: 5个热门模型快速按钮 | **💾 持久化**: URL参数存储，刷新保持 | **🔄 智能切换**: 一键切换不同提供商
+**🎯 Quick Selection**: 5 popular model quick buttons | **💾 Persistence**: URL parameter storage, refresh retention | **🔄 Smart Switch**: One-click switch between different providers
 
-### 📊 数据源与市场
+### 📊 Data Sources and Markets
 
 
-| 市场类型      | 数据源                   | 覆盖范围                     |
+| Market Type      | Data Source                   | Coverage                     |
 | ------------- | ------------------------ | ---------------------------- |
-| **🇨🇳 A股**  | Tushare, AkShare, 通达信 | 沪深两市，实时行情，财报数据 |
-| **🇭🇰 港股** | AkShare, Yahoo Finance   | 港交所，实时行情，基本面     |
-| **🇺🇸 美股** | FinnHub, Yahoo Finance   | NYSE, NASDAQ，实时数据       |
-| **📰 新闻**   | Google News              | 实时新闻，多语言支持         |
+| **🇨🇳 A-Shares**  | Tushare, AkShare, TDX | Shanghai and Shenzhen markets, real-time quotes, financial data |
+| **🇭🇰 Hong Kong Stocks** | AkShare, Yahoo Finance   | HKEX, real-time quotes, fundamentals     |
+| **🇺🇸 US Stocks** | FinnHub, Yahoo Finance   | NYSE, NASDAQ, real-time data       |
+| **📰 News**   | Google News              | Real-time news, multi-language support         |
 
-### 🤖 智能体团队
+### 🤖 Agent Team
 
-**分析师团队**: 📈市场分析 | 💰基本面分析 | 📰新闻分析 | 💬情绪分析
-**研究团队**: 🐂看涨研究员 | 🐻看跌研究员 | 🎯交易决策员
-**管理层**: 🛡️风险管理员 | 👔研究主管
+**Analyst Team**: 📈Market Analysis | 💰Fundamental Analysis | 📰News Analysis | 💬Sentiment Analysis
+**Research Team**: 🐂Bullish Researcher | 🐻Bearish Researcher | 🎯Trading Decision Maker
+**Management**: 🛡️Risk Manager | 👔Research Director
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 🐳 Docker部署 (推荐)
+### 🐳 Docker Deployment (Recommended)
 
 ```bash
-# 1. 克隆项目
+# 1. Clone the project
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 配置环境变量
+# 2. Configure environment variables
 cp .env.example .env
-# 编辑 .env 文件，填入API密钥
+# Edit .env file, fill in API keys
 
-# 3. 启动服务
-# 首次启动或代码变更时（需要构建镜像）
+# 3. Start services
+# First startup or code changes (need to build image)
 docker-compose up -d --build
 
-# 日常启动（镜像已存在，无代码变更）
+# Daily startup (image exists, no code changes)
 docker-compose up -d
 
-# 智能启动（自动判断是否需要构建）
-# Windows环境
+# Smart startup (automatically determine if build is needed)
+# Windows environment
 powershell -ExecutionPolicy Bypass -File scripts\smart_start.ps1
 
-# Linux/Mac环境
+# Linux/Mac environment
 chmod +x scripts/smart_start.sh && ./scripts/smart_start.sh
 
-# 4. 访问应用
-# Web界面: http://localhost:8501
+# 4. Access application
+# Web interface: http://localhost:8501
 ```
 
-### 💻 本地部署
+### 💻 Local Deployment
 
 ```bash
-# 1. 升级pip (重要！避免安装错误)
+# 1. Upgrade pip (Important! Avoid installation errors)
 python -m pip install --upgrade pip
 
-# 2. 安装依赖
+# 2. Install dependencies
 pip install -e .
 
-# 3. 启动应用
+# 3. Start application
 python start_web.py
 
-# 4. 访问 http://localhost:8501
+# 4. Access http://localhost:8501
 ```
 
-### 📊 开始分析
+### 📊 Start Analysis
 
-1. **选择模型**: DeepSeek V3 / 通义千问 / Gemini
-2. **输入股票**: `000001` (A股) / `AAPL` (美股) / `0700.HK` (港股)
-3. **开始分析**: 点击"🚀 开始分析"按钮
-4. **实时跟踪**: 观察实时进度和分析步骤
-5. **查看报告**: 点击"📊 查看分析报告"按钮
-6. **导出报告**: 支持Word/PDF/Markdown格式
+1. **Select Model**: DeepSeek V3 / Qwen / Gemini
+2. **Input Stock**: `000001` (A-Share) / `AAPL` (US Stock) / `0700.HK` (HK Stock)
+3. **Start Analysis**: Click "🚀 Start Analysis" button
+4. **Real-time Tracking**: Observe real-time progress and analysis steps
+5. **View Report**: Click "📊 View Analysis Report" button
+6. **Export Report**: Support Word/PDF/Markdown formats
 
-## 🔐 用户权限管理
+## 🔐 User Permission Management
 
-### 🔑 默认账号信息
+### 🔑 Default Account Information
 
-系统提供以下默认账号，首次启动时自动创建：
+The system provides the following default accounts, automatically created on first startup:
 
-| 用户名 | 密码 | 角色 | 权限说明 |
+| Username | Password | Role | Permission Description |
 |--------|------|------|----------|
-| **admin** | **admin123** | 管理员 | 完整系统权限，用户管理，系统配置 |
-| **user** | **user123** | 普通用户 | 股票分析，报告查看，基础功能 |
+| **admin** | **admin123** | Administrator | Full system permissions, user management, system configuration |
+| **user** | **user123** | Regular User | Stock analysis, report viewing, basic functions |
 
-> ⚠️ **安全提醒**: 首次登录后请立即修改默认密码！
+> ⚠️ **Security Reminder**: Please change the default password immediately after first login!
 
-### 🛡️ 权限控制体系
+### 🛡️ Permission Control System
 
-- **🔐 登录认证**: 基于用户名密码的安全认证
-- **👥 角色管理**: 管理员、普通用户等多级权限
-- **⏰ 会话管理**: 自动超时保护，安全登出
-- **📊 操作日志**: 完整的用户活动记录
+- **🔐 Login Authentication**: Secure authentication based on username and password
+- **👥 Role Management**: Multi-level permissions including administrators and regular users
+- **⏰ Session Management**: Automatic timeout protection, secure logout
+- **📊 Operation Log**: Complete user activity records
 
-### 🛠️ 用户管理工具
+### 🛠️ User Management Tools
 
-系统提供完整的命令行用户管理工具：
+The system provides complete command-line user management tools:
 
-#### Windows 用户
+#### Windows Users
 ```powershell
-# 使用 PowerShell 脚本
-.\scripts\user_manager.ps1 list                    # 列出所有用户
-.\scripts\user_manager.ps1 change-password admin   # 修改密码
-.\scripts\user_manager.ps1 create newuser trader  # 创建新用户
-.\scripts\user_manager.ps1 delete olduser         # 删除用户
+# Using PowerShell script
+.\scripts\user_manager.ps1 list                    # List all users
+.\scripts\user_manager.ps1 change-password admin   # Change password
+.\scripts\user_manager.ps1 create newuser trader  # Create new user
+.\scripts\user_manager.ps1 delete olduser         # Delete user
 
-# 或使用批处理文件
+# Or use batch file
 .\scripts\user_manager.bat list
 ```
 
-#### Python 脚本（跨平台）
+#### Python Script (Cross-platform)
 ```bash
-# 直接使用 Python 脚本
+# Use Python script directly
 python scripts/user_password_manager.py list
 python scripts/user_password_manager.py change-password admin
 python scripts/user_password_manager.py create newuser --role trader
 python scripts/user_password_manager.py delete olduser
-python scripts/user_password_manager.py reset  # 重置为默认配置
+python scripts/user_password_manager.py reset  # Reset to default configuration
 ```
 
-### 📋 支持的用户操作
+### 📋 Supported User Operations
 
-- **📝 列出用户**: 查看所有用户及其角色权限
-- **🔑 修改密码**: 安全的密码更新机制
-- **👤 创建用户**: 支持自定义角色和权限
-- **🗑️ 删除用户**: 安全的用户删除功能
-- **🔄 重置配置**: 恢复默认用户设置
+- **📝 List Users**: View all users and their role permissions
+- **🔑 Change Password**: Secure password update mechanism
+- **👤 Create User**: Support custom roles and permissions
+- **🗑️ Delete User**: Secure user deletion function
+- **🔄 Reset Configuration**: Restore default user settings
 
-### 📁 配置文件位置
+### 📁 Configuration File Location
 
-用户配置存储在：`web/config/users.json`
+User configuration stored in: `web/config/users.json`
 
-> 📚 **详细文档**: 完整的用户管理指南请参考 [scripts/USER_MANAGEMENT.md](scripts/USER_MANAGEMENT.md)
+> 📚 **Detailed Documentation**: For complete user management guide, refer to [scripts/USER_MANAGEMENT.md](scripts/USER_MANAGEMENT.md)
 
-### 🚧 当前版本限制
+### 🚧 Current Version Limitations
 
-- ❌ 暂不支持在线用户注册
-- ❌ 暂不支持Web界面的角色管理
-- ✅ 支持完整的命令行用户管理
-- ✅ 支持完整的权限控制框架
+- ❌ Online user registration not yet supported
+- ❌ Web interface role management not yet supported
+- ✅ Full command-line user management supported
+- ✅ Complete permission control framework supported
 
 ---
 
-## 🎯 核心优势
+## 🎯 Core Advantages
 
-- **🧠 智能新闻分析**: v0.1.12新增AI驱动的新闻过滤和质量评估系统
-- **🔧 多层次过滤**: 基础、增强、集成三级新闻过滤机制
-- **📰 统一新闻工具**: 整合多源新闻，提供统一的智能检索接口
-- **🆕 多LLM集成**: v0.1.11新增4大提供商，60+模型，一站式AI体验
-- **💾 配置持久化**: 模型选择真正持久化，URL参数存储，刷新保持
-- **🎯 快速切换**: 5个热门模型快速按钮，一键切换不同AI
-- **🆕 实时进度**: v0.1.10异步进度跟踪，告别黑盒等待
-- **💾 智能会话**: 状态持久化，页面刷新不丢失分析结果
-- **🔐 用户权限**: v0.1.14新增完整的用户认证和权限管理体系
-- **🇨🇳 中国优化**: A股/港股数据 + 国产LLM + 中文界面
-- **🐳 容器化**: Docker一键部署，环境隔离，快速扩展
-- **📄 专业报告**: 多格式导出，自动生成投资建议
-- **🛡️ 稳定可靠**: 多层数据源，智能降级，错误恢复
+- **🧠 Smart News Analysis**: v0.1.12 added AI-driven news filtering and quality assessment system
+- **🔧 Multi-level Filtering**: Three-tier news filtering mechanism with basic, enhanced, and integrated levels
+- **📰 Unified News Tool**: Integrate multi-source news, providing unified smart retrieval interface
+- **🆕 Multi-LLM Integration**: v0.1.11 added 4 major providers, 60+ models, one-stop AI experience
+- **💾 Configuration Persistence**: True model selection persistence, URL parameter storage, refresh retention
+- **🎯 Quick Switch**: 5 popular model quick buttons, one-click switch between different AIs
+- **🆕 Real-time Progress**: v0.1.10 async progress tracking, goodbye to black-box waiting
+- **💾 Smart Session**: State persistence, analysis results not lost on page refresh
+- **🔐 User Permissions**: v0.1.14 added complete user authentication and permission management system
+- **🌍 Global Optimization**: A-share/Hong Kong stock data + leading LLM + multilingual interface
+- **🐳 Containerization**: Docker one-click deployment, environment isolation, rapid scaling
+- **📄 Professional Reports**: Multi-format export, automatic investment recommendation generation
+- **🛡️ Stable and Reliable**: Multi-layer data sources, smart degradation, error recovery
 
-## 🔧 技术架构
+## 🔧 Technical Architecture
 
-**核心技术**: Python 3.10+ | LangChain | Streamlit | MongoDB | Redis
-**AI模型**: DeepSeek V3 | 阿里百炼 | Google AI | OpenRouter(60+模型) | OpenAI
-**数据源**: Tushare | AkShare | FinnHub | Yahoo Finance
-**部署**: Docker | Docker Compose | 本地部署
+**Core Technologies**: Python 3.10+ | LangChain | Streamlit | MongoDB | Redis
+**AI Models**: DeepSeek V3 | Alibaba Qwen | Google AI | OpenRouter (60+ models) | OpenAI
+**Data Sources**: Tushare | AkShare | FinnHub | Yahoo Finance
+**Deployment**: Docker | Docker Compose | Local Deployment
 
-## 📚 文档和支持
+## 📚 Documentation and Support
 
-- **📖 完整文档**: [docs/](./docs/) - 安装指南、使用教程、API文档
-- **🚨 故障排除**: [troubleshooting/](./docs/troubleshooting/) - 常见问题解决方案
-- **🔄 更新日志**: [CHANGELOG.md](./docs/releases/CHANGELOG.md) - 详细版本历史
-- **🚀 快速开始**: [QUICKSTART.md](./QUICKSTART.md) - 5分钟快速部署指南
+- **📖 Complete Documentation**: [docs/](./docs/) - Installation guide, usage tutorials, API documentation
+- **🚨 Troubleshooting**: [troubleshooting/](./docs/troubleshooting/) - Common problem solutions
+- **🔄 Changelog**: [CHANGELOG.md](./docs/releases/CHANGELOG.md) - Detailed version history
+- **🚀 Quick Start**: [QUICKSTART.md](./QUICKSTART.md) - 5-minute quick deployment guide
 
-## 🆚 中文增强特色
+## 🆚 Enhanced Features
 
-**相比原版新增**: 智能新闻分析 | 多层次新闻过滤 | 新闻质量评估 | 统一新闻工具 | 多LLM提供商集成 | 模型选择持久化 | 快速切换按钮 | | 实时进度显示 | 智能会话管理 | 中文界面 | A股数据 | 国产LLM | Docker部署 | 专业报告导出 | 统一日志管理 | Web配置界面 | 成本优化
+**New additions compared to original**: Smart News Analysis | Multi-level News Filtering | News Quality Assessment | Unified News Tool | Multi-LLM Provider Integration | Model Selection Persistence | Quick Switch Buttons | Real-time Progress Display | Smart Session Management | International Interface | A-Share Data | Leading LLM | Docker Deployment | Professional Report Export | Unified Log Management | Web Configuration Interface | Cost Optimization
 
-**Docker部署包含的服务**:
+**Services included in Docker deployment**:
 
-- 🌐 **Web应用**: TradingAgents-CN主程序
-- 🗄️ **MongoDB**: 数据持久化存储
-- ⚡ **Redis**: 高速缓存
-- 📊 **MongoDB Express**: 数据库管理界面
-- 🎛️ **Redis Commander**: 缓存管理界面
+- 🌐 **Web Application**: TradingAgents-CN main program
+- 🗄️ **MongoDB**: Data persistence storage
+- ⚡ **Redis**: High-speed cache
+- 📊 **MongoDB Express**: Database management interface
+- 🎛️ **Redis Commander**: Cache management interface
 
-#### 💻 方式二：本地部署
+#### 💻 Option 2: Local Deployment
 
-**适用场景**: 开发环境、自定义配置、离线使用
+**Applicable Scenarios**: Development environment, custom configuration, offline use
 
-### 环境要求
+### Environment Requirements
 
-- Python 3.10+ (推荐 3.11)
-- 4GB+ RAM (推荐 8GB+)
-- 稳定的网络连接
+- Python 3.10+ (Recommended 3.11)
+- 4GB+ RAM (Recommended 8GB+)
+- Stable network connection
 
-### 安装步骤
+### Installation Steps
 
 ```bash
-# 1. 克隆项目
+# 1. Clone the project
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 创建虚拟环境
+# 2. Create virtual environment
 python -m venv env
 # Windows
 env\Scripts\activate
 # Linux/macOS
 source env/bin/activate
 
-# 3. 升级pip
+# 3. Upgrade pip
 python -m pip install --upgrade pip
 
-# 4. 安装所有依赖
+# 4. Install all dependencies
 pip install -r requirements.txt
-#或者使用pip install -e .
+# Or use pip install -e .
 pip install -e .
 
-# 注意：requirements.txt已包含所有必需依赖：
-# - 数据库支持 (MongoDB + Redis)
-# - 多市场数据源 (Tushare, AKShare, FinnHub等)
-# - Web界面和报告导出功能
+# Note: requirements.txt includes all necessary dependencies:
+# - Database support (MongoDB + Redis)
+# - Multi-market data sources (Tushare, AKShare, FinnHub, etc.)
+# - Web interface and report export functionality
 ```
 
-### 配置API密钥
+### Configure API Keys
 
-#### 🇨🇳 推荐：使用阿里百炼（国产大模型）
+#### 🇨🇳 Recommended: Use Alibaba Qwen (Leading Large Model)
 
 ```bash
-# 复制配置模板
+# Copy configuration template
 cp .env.example .env
 
-# 编辑 .env 文件，配置以下必需的API密钥：
+# Edit .env file, configure the following required API keys:
 DASHSCOPE_API_KEY=your_dashscope_api_key_here
 FINNHUB_API_KEY=your_finnhub_api_key_here
 
-# 推荐：Tushare API（专业A股数据）
+# Recommended: Tushare API (Professional A-share data)
 TUSHARE_TOKEN=your_tushare_token_here
 TUSHARE_ENABLED=true
 
-# 可选：其他AI模型API
+# Optional: Other AI model APIs
 GOOGLE_API_KEY=your_google_api_key_here
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 
-# 数据库配置（可选，提升性能）
-# 本地部署使用标准端口
-MONGODB_ENABLED=false  # 设为true启用MongoDB
-REDIS_ENABLED=false    # 设为true启用Redis
+# Database configuration (optional, improves performance)
+# Local deployment uses standard ports
+MONGODB_ENABLED=false  # Set to true to enable MongoDB
+REDIS_ENABLED=false    # Set to true to enable Redis
 MONGODB_HOST=localhost
-MONGODB_PORT=27017     # 标准MongoDB端口
+MONGODB_PORT=27017     # Standard MongoDB port
 REDIS_HOST=localhost
-REDIS_PORT=6379        # 标准Redis端口
+REDIS_PORT=6379        # Standard Redis port
 
-# Docker部署时需要修改主机名
+# Docker deployment requires modifying hostname
 # MONGODB_HOST=mongodb
 # REDIS_HOST=redis
 ```
 
-#### 📋 部署模式配置说明
+#### 📋 Deployment Mode Configuration Instructions
 
-**本地部署模式**：
-
-```bash
-# 数据库配置（本地部署）
-MONGODB_ENABLED=true
-REDIS_ENABLED=true
-MONGODB_HOST=localhost      # 本地主机
-MONGODB_PORT=27017         # 标准端口
-REDIS_HOST=localhost       # 本地主机
-REDIS_PORT=6379           # 标准端口
-```
-
-**Docker部署模式**：
+**Local Deployment Mode**:
 
 ```bash
-# 数据库配置（Docker部署）
+# Database configuration (local deployment)
 MONGODB_ENABLED=true
 REDIS_ENABLED=true
-MONGODB_HOST=mongodb       # Docker容器服务名
-MONGODB_PORT=27017        # 标准端口
-REDIS_HOST=redis          # Docker容器服务名
-REDIS_PORT=6379          # 标准端口
+MONGODB_HOST=localhost      # Local host
+MONGODB_PORT=27017         # Standard port
+REDIS_HOST=localhost       # Local host
+REDIS_PORT=6379           # Standard port
 ```
 
-> 💡 **配置提示**：
+**Docker Deployment Mode**:
+
+```bash
+# Database configuration (Docker deployment)
+MONGODB_ENABLED=true
+REDIS_ENABLED=true
+MONGODB_HOST=mongodb       # Docker container service name
+MONGODB_PORT=27017        # Standard port
+REDIS_HOST=redis          # Docker container service name
+REDIS_PORT=6379          # Standard port
+```
+
+> 💡 **Configuration Tips**:
 >
-> - 本地部署：需要手动启动MongoDB和Redis服务
-> - Docker部署：数据库服务通过docker-compose自动启动
-> - 端口冲突：如果本地已有数据库服务，可修改docker-compose.yml中的端口映射
+> - Local deployment: Need to manually start MongoDB and Redis services
+> - Docker deployment: Database services automatically started through docker-compose
+> - Port conflicts: If local database services already exist, modify port mapping in docker-compose.yml
 
-#### 🌍 可选：使用国外模型
+#### 🌍 Optional: Use International Models
 
 ```bash
-# OpenAI (需要科学上网)
+# OpenAI (requires VPN)
 OPENAI_API_KEY=your_openai_api_key
 
-# Anthropic (需要科学上网)
+# Anthropic (requires VPN)
 ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
-### 🗄️ 数据库配置（MongoDB + Redis）
+### 🗄️ Database Configuration (MongoDB + Redis)
 
-#### 高性能数据存储支持
+#### High-Performance Data Storage Support
 
-本项目支持 **MongoDB** 和 **Redis** 数据库，提供：
+This project supports **MongoDB** and **Redis** databases, providing:
 
-- **📊 股票数据缓存**: 减少API调用，提升响应速度
-- **🔄 智能降级机制**: MongoDB → API → 本地缓存的多层数据源
-- **⚡ 高性能缓存**: Redis缓存热点数据，毫秒级响应
-- **🛡️ 数据持久化**: MongoDB存储历史数据，支持离线分析
+- **📊 Stock Data Caching**: Reduce API calls, improve response speed
+- **🔄 Smart Degradation Mechanism**: Multi-layer data sources: MongoDB → API → Local cache
+- **⚡ High-Performance Caching**: Redis caches hot data, millisecond-level response
+- **🛡️ Data Persistence**: MongoDB stores historical data, supports offline analysis
 
-#### 数据库部署方式
+#### Database Deployment Methods
 
-**🐳 Docker部署（推荐）**
+**🐳 Docker Deployment (Recommended)**
 
-如果您使用Docker部署，数据库已自动包含在内：
+If you use Docker deployment, the database is automatically included:
 
 ```bash
-# Docker部署会自动启动所有服务，包括：
+# Docker deployment automatically starts all services, including:
 docker-compose up -d --build
-# - Web应用 (端口8501)
-# - MongoDB (端口27017)
-# - Redis (端口6379)
-# - 数据库管理界面 (端口8081, 8082)
+# - Web application (port 8501)
+# - MongoDB (port 27017)
+# - Redis (port 6379)
+# - Database management interface (ports 8081, 8082)
 ```
 
-**💻 本地部署 - 数据库配置**
+**💻 Local Deployment - Database Configuration**
 
-如果您使用本地部署，可以选择以下方式：
+If you use local deployment, you can choose the following methods:
 
-**方式一：仅启动数据库服务**
+**Method 1: Start Database Services Only**
 
 ```bash
-# 仅启动 MongoDB + Redis 服务（不启动Web应用）
+# Start MongoDB + Redis services only (without Web application)
 docker-compose up -d mongodb redis mongo-express redis-commander
 
-# 查看服务状态
+# Check service status
 docker-compose ps
 
-# 停止服务
+# Stop services
 docker-compose down
 ```
 
-**方式二：完全本地安装**
+**Method 2: Complete Local Installation**
 
 ```bash
-# 数据库依赖已包含在requirements.txt中，无需额外安装
+# Database dependencies are included in requirements.txt, no additional installation needed
 
-# 启动 MongoDB (默认端口 27017)
+# Start MongoDB (default port 27017)
 mongod --dbpath ./data/mongodb
 
-# 启动 Redis (默认端口 6379)
+# Start Redis (default port 6379)
 redis-server
 ```
 
-> ⚠️ **重要说明**:
+> ⚠️ **Important Notes**:
 >
-> - **🐳 Docker部署**: 数据库自动包含，无需额外配置
-> - **💻 本地部署**: 可选择仅启动数据库服务或完全本地安装
-> - **📋 推荐**: 使用Docker部署以获得最佳体验和一致性
+> - **🐳 Docker Deployment**: Database automatically included, no additional configuration needed
+> - **💻 Local Deployment**: Can choose to start database services only or complete local installation
+> - **📋 Recommended**: Use Docker deployment for best experience and consistency
 
-#### 数据库配置选项
+#### Database Configuration Options
 
-**环境变量配置**（推荐）：
+**Environment Variable Configuration** (Recommended):
 
 ```bash
-# MongoDB 配置
+# MongoDB Configuration
 MONGODB_HOST=localhost
 MONGODB_PORT=27017
 MONGODB_DATABASE=trading_agents
 MONGODB_USERNAME=admin
 MONGODB_PASSWORD=your_password
 
-# Redis 配置
+# Redis Configuration
 REDIS_HOST=localhost
 REDIS_PORT=6379
 REDIS_PASSWORD=your_redis_password
 REDIS_DB=0
 ```
 
-**配置文件方式**：
+**Configuration File Method**:
 
 ```python
 # config/database_config.py
@@ -710,313 +710,313 @@ DATABASE_CONFIG = {
 }
 ```
 
-#### 数据库功能特性
+#### Database Features
 
-**MongoDB 功能**：
+**MongoDB Features**:
 
-- ✅ 股票基础信息存储
-- ✅ 历史价格数据缓存
-- ✅ 分析结果持久化
-- ✅ 用户配置管理
-- ✅ 自动数据同步
+- ✅ Stock basic information storage
+- ✅ Historical price data caching
+- ✅ Analysis result persistence
+- ✅ User configuration management
+- ✅ Automatic data synchronization
 
-**Redis 功能**：
+**Redis Features**:
 
-- ⚡ 实时价格数据缓存
-- ⚡ API响应结果缓存
-- ⚡ 会话状态管理
-- ⚡ 热点数据预加载
-- ⚡ 分布式锁支持
+- ⚡ Real-time price data caching
+- ⚡ API response result caching
+- ⚡ Session state management
+- ⚡ Hot data preloading
+- ⚡ Distributed lock support
 
-#### 智能降级机制
+#### Smart Degradation Mechanism
 
-系统采用多层数据源降级策略，确保高可用性：
+The system adopts a multi-layer data source degradation strategy to ensure high availability:
 
 ```
-📊 数据获取流程：
-1. 🔍 检查 Redis 缓存 (毫秒级)
-2. 📚 查询 MongoDB 存储 (秒级)
-3. 🌐 调用通达信API (秒级)
-4. 💾 本地文件缓存 (备用)
-5. ❌ 返回错误信息
+📊 Data Acquisition Process:
+1. 🔍 Check Redis cache (millisecond-level)
+2. 📚 Query MongoDB storage (second-level)
+3. 🌐 Call TDX API (second-level)
+4. 💾 Local file cache (backup)
+5. ❌ Return error message
 ```
 
-**配置降级策略**：
+**Configure Degradation Strategy**:
 
 ```python
-# 在 .env 文件中配置
+# Configure in .env file
 ENABLE_MONGODB=true
 ENABLE_REDIS=true
 ENABLE_FALLBACK=true
 
-# 缓存过期时间（秒）
+# Cache expiration time (seconds)
 REDIS_CACHE_TTL=300
 MONGODB_CACHE_TTL=3600
 ```
 
-#### 性能优化建议
+#### Performance Optimization Recommendations
 
-**生产环境配置**：
+**Production Environment Configuration**:
 
 ```bash
-# MongoDB 优化
+# MongoDB Optimization
 MONGODB_MAX_POOL_SIZE=50
 MONGODB_MIN_POOL_SIZE=5
 MONGODB_MAX_IDLE_TIME=30000
 
-# Redis 优化
+# Redis Optimization
 REDIS_MAX_CONNECTIONS=20
 REDIS_CONNECTION_POOL_SIZE=10
 REDIS_SOCKET_TIMEOUT=5
 ```
 
-#### 数据库管理工具
+#### Database Management Tools
 
 ```bash
-# 初始化数据库
+# Initialize database
 python scripts/setup/init_database.py
 
-# 系统状态检查
+# System status check
 python scripts/validation/check_system_status.py
 
-# 清理缓存工具
+# Cache cleanup tool
 python scripts/maintenance/cleanup_cache.py --days 7
 ```
 
-#### 故障排除
+#### Troubleshooting
 
-**常见问题解决**：
+**Common Problem Solutions**:
 
-1. **🪟 Windows 10 ChromaDB兼容性问题**
+1. **🪟 Windows 10 ChromaDB Compatibility Issue**
 
-   **问题现象**：在Windows 10上出现 `Configuration error: An instance of Chroma already exists for ephemeral with different settings` 错误，而Windows 11正常。
+   **Problem Description**: On Windows 10, the error `Configuration error: An instance of Chroma already exists for ephemeral with different settings` appears, while Windows 11 works normally.
 
-   **快速解决方案**：
+   **Quick Solutions**:
 
    ```bash
-   # 方案1：禁用内存功能（推荐）
-   # 在 .env 文件中添加：
+   # Solution 1: Disable memory feature (Recommended)
+   # Add to .env file:
    MEMORY_ENABLED=false
 
-   # 方案2：使用专用修复脚本
+   # Solution 2: Use dedicated fix script
    powershell -ExecutionPolicy Bypass -File scripts\fix_chromadb_win10.ps1
 
-   # 方案3：管理员权限运行
-   # 右键PowerShell -> "以管理员身份运行"
+   # Solution 3: Run with administrator privileges
+   # Right-click PowerShell -> "Run as administrator"
    ```
 
-   **详细解决方案**：参考 [Windows 10兼容性指南](docs/troubleshooting/windows10-chromadb-fix.md)
-2. **MongoDB连接失败**
+   **Detailed Solution**: Refer to [Windows 10 Compatibility Guide](docs/troubleshooting/windows10-chromadb-fix.md)
+2. **MongoDB Connection Failed**
 
-   **Docker部署**：
+   **Docker Deployment**:
 
    ```bash
-   # 检查服务状态
+   # Check service status
    docker-compose logs mongodb
 
-   # 重启服务
+   # Restart service
    docker-compose restart mongodb
    ```
 
-   **本地部署**：
+   **Local Deployment**:
 
    ```bash
-   # 检查MongoDB进程
+   # Check MongoDB process
    ps aux | grep mongod
 
-   # 重启MongoDB
+   # Restart MongoDB
    sudo systemctl restart mongod  # Linux
    brew services restart mongodb  # macOS
    ```
-3. **Redis连接超时**
+3. **Redis Connection Timeout**
 
    ```bash
-   # 检查Redis状态
+   # Check Redis status
    redis-cli ping
 
-   # 清理Redis缓存
+   # Clear Redis cache
    redis-cli flushdb
    ```
-4. **缓存问题**
+4. **Cache Issues**
 
    ```bash
-   # 检查系统状态和缓存
+   # Check system status and cache
    python scripts/validation/check_system_status.py
 
-   # 清理过期缓存
+   # Clean expired cache
    python scripts/maintenance/cleanup_cache.py --days 7
    ```
 
-> 💡 **提示**: 即使不配置数据库，系统仍可正常运行，会自动降级到API直接调用模式。数据库配置是可选的性能优化功能。
+> 💡 **Tip**: Even without database configuration, the system can still run normally and will automatically degrade to direct API call mode. Database configuration is an optional performance optimization feature.
 
-> 📚 **详细文档**: 更多数据库配置信息请参考 [数据库架构文档](docs/architecture/database-architecture.md)
+> 📚 **Detailed Documentation**: For more database configuration information, refer to [Database Architecture Documentation](docs/architecture/database-architecture.md)
 
-### 📤 报告导出功能
+### 📤 Report Export Functionality
 
-#### 新增功能：专业分析报告导出
+#### New Feature: Professional Analysis Report Export
 
-本项目现已支持将股票分析结果导出为多种专业格式：
+This project now supports exporting stock analysis results to multiple professional formats:
 
-**支持的导出格式**：
+**Supported Export Formats**:
 
-- **📄 Markdown (.md)** - 轻量级标记语言，适合技术用户和版本控制
-- **📝 Word (.docx)** - Microsoft Word文档，适合商务报告和进一步编辑
-- **📊 PDF (.pdf)** - 便携式文档格式，适合正式分享和打印
+- **📄 Markdown (.md)** - Lightweight markup language, suitable for technical users and version control
+- **📝 Word (.docx)** - Microsoft Word document, suitable for business reports and further editing
+- **📊 PDF (.pdf)** - Portable document format, suitable for formal sharing and printing
 
-**报告内容结构**：
+**Report Content Structure**:
 
-- 🎯 **投资决策摘要** - 买入/持有/卖出建议，置信度，风险评分
-- 📊 **详细分析报告** - 技术分析，基本面分析，市场情绪，新闻事件
-- ⚠️ **风险提示** - 完整的投资风险声明和免责条款
-- 📋 **配置信息** - 分析参数，模型信息，生成时间
+- 🎯 **Investment Decision Summary** - Buy/Hold/Sell recommendations, confidence level, risk score
+- 📊 **Detailed Analysis Report** - Technical analysis, fundamental analysis, market sentiment, news events
+- ⚠️ **Risk Disclaimer** - Complete investment risk statement and disclaimer clauses
+- 📋 **Configuration Information** - Analysis parameters, model information, generation time
 
-**使用方法**：
+**Usage Instructions**:
 
-1. 完成股票分析后，在结果页面底部找到"📤 导出报告"部分
-2. 选择需要的格式：Markdown、Word或PDF
-3. 点击导出按钮，系统自动生成并提供下载
+1. After completing stock analysis, find the "📤 Export Report" section at the bottom of the results page
+2. Select the desired format: Markdown, Word, or PDF
+3. Click the export button, the system will automatically generate and provide download
 
-**安装导出依赖**：
+**Install Export Dependencies**:
 
 ```bash
-# 安装Python依赖
+# Install Python dependencies
 pip install markdown pypandoc
 
-# 安装系统工具（用于PDF导出）
+# Install system tools (for PDF export)
 # Windows: choco install pandoc wkhtmltopdf
 # macOS: brew install pandoc wkhtmltopdf
 # Linux: sudo apt-get install pandoc wkhtmltopdf
 ```
 
-> 📚 **详细文档**: 完整的导出功能使用指南请参考 [导出功能指南](docs/EXPORT_GUIDE.md)
+> 📚 **Detailed Documentation**: For complete export functionality usage guide, refer to [Export Functionality Guide](docs/EXPORT_GUIDE.md)
 
-### 🚀 启动应用
+### 🚀 Start Application
 
-#### 🐳 Docker启动（推荐）
+#### 🐳 Docker Startup (Recommended)
 
-如果您使用Docker部署，应用已经自动启动：
+If you use Docker deployment, the application is already automatically started:
 
 ```bash
-# 应用已在Docker中运行，直接访问：
-# Web界面: http://localhost:8501
-# 数据库管理: http://localhost:8081
-# 缓存管理: http://localhost:8082
+# Application is running in Docker, access directly:
+# Web interface: http://localhost:8501
+# Database management: http://localhost:8081
+# Cache management: http://localhost:8082
 
-# 查看运行状态
+# Check running status
 docker-compose ps
 
-# 查看日志
+# View logs
 docker-compose logs -f web
 ```
 
-#### 💻 本地启动
+#### 💻 Local Startup
 
-如果您使用本地部署：
+If you use local deployment:
 
 ```bash
-# 1. 激活虚拟环境
+# 1. Activate virtual environment
 # Windows
 .\env\Scripts\activate
 # Linux/macOS
 source env/bin/activate
 
-# 2. 安装项目到虚拟环境（重要！）
+# 2. Install project to virtual environment (Important!)
 pip install -e .
 
-# 3. 启动Web管理界面
-# 方法1：使用项目启动脚本（推荐）
+# 3. Start Web management interface
+# Method 1: Use project startup script (Recommended)
 python start_web.py
 
-# 方法2：使用原始启动脚本
+# Method 2: Use original startup script
 python web/run_web.py
 
-# 方法3：直接使用streamlit（需要先安装项目）
+# Method 3: Use streamlit directly (need to install project first)
 streamlit run web/app.py
 ```
 
-然后在浏览器中访问 `http://localhost:8501`
+Then access `http://localhost:8501` in your browser
 
-**Web界面特色功能**:
+**Web Interface Featured Functions**:
 
-- 🇺🇸 **美股分析**: 支持 AAPL, TSLA, NVDA 等美股代码
-- 🇨🇳 **A股分析**: 支持 000001, 600519, 300750 等A股代码
-- 📊 **实时数据**: 通达信API提供A股实时行情数据
-- 🤖 **智能体选择**: 可选择不同的分析师组合
-- 📤 **报告导出**: 一键导出Markdown/Word/PDF格式专业分析报告
-- 🎯 **5级研究深度**: 从快速分析(2-4分钟)到全面分析(15-25分钟)
-- 📊 **智能分析师选择**: 市场技术、基本面、新闻、社交媒体分析师
-- 🔄 **实时进度显示**: 可视化分析过程，避免等待焦虑
-- 📈 **结构化结果**: 投资建议、目标价位、置信度、风险评估
-- 🇨🇳 **完全中文化**: 界面和分析结果全中文显示
+- 🇺🇸 **US Stock Analysis**: Support AAPL, TSLA, NVDA and other US stock codes
+- 🇨🇳 **A-Share Analysis**: Support 000001, 600519, 300750 and other A-share codes
+- 📊 **Real-time Data**: TDX API provides A-share real-time market data
+- 🤖 **Agent Selection**: Choose different analyst combinations
+- 📤 **Report Export**: One-click export professional analysis reports in Markdown/Word/PDF format
+- 🎯 **5-Level Research Depth**: From quick analysis (2-4 minutes) to comprehensive analysis (15-25 minutes)
+- 📊 **Smart Analyst Selection**: Market technical, fundamental, news, social media analysts
+- 🔄 **Real-time Progress Display**: Visualize analysis process, avoid waiting anxiety
+- 📈 **Structured Results**: Investment recommendations, target price, confidence level, risk assessment
+- 🌍 **Fully International**: Interface and analysis results optimized for international users
 
-**研究深度级别说明**:
+**Research Depth Level Description**:
 
-- **1级 - 快速分析** (2-4分钟): 日常监控，基础决策
-- **2级 - 基础分析** (4-6分钟): 常规投资，平衡速度
-- **3级 - 标准分析** (6-10分钟): 重要决策，推荐默认
-- **4级 - 深度分析** (10-15分钟): 重大投资，详细研究
-- **5级 - 全面分析** (15-25分钟): 最重要决策，最全面分析
+- **Level 1 - Quick Analysis** (2-4 minutes): Daily monitoring, basic decisions
+- **Level 2 - Basic Analysis** (4-6 minutes): Regular investment, balanced speed
+- **Level 3 - Standard Analysis** (6-10 minutes): Important decisions, recommended default
+- **Level 4 - In-depth Analysis** (10-15 minutes): Major investment, detailed research
+- **Level 5 - Comprehensive Analysis** (15-25 minutes): Most important decisions, most comprehensive analysis
 
-#### 💻 代码调用（适合开发者）
+#### 💻 Code Invocation (For Developers)
 
 ```python
 from tradingagents.graph.trading_graph import TradingAgentsGraph
 from tradingagents.default_config import DEFAULT_CONFIG
 
-# 配置阿里百炼
+# Configure Alibaba Qwen
 config = DEFAULT_CONFIG.copy()
 config["llm_provider"] = "dashscope"
-config["deep_think_llm"] = "qwen-plus"      # 深度分析
-config["quick_think_llm"] = "qwen-turbo"    # 快速任务
+config["deep_think_llm"] = "qwen-plus"      # Deep analysis
+config["quick_think_llm"] = "qwen-turbo"    # Quick tasks
 
-# 创建交易智能体
+# Create trading agent
 ta = TradingAgentsGraph(debug=True, config=config)
 
-# 分析股票 (以苹果公司为例)
+# Analyze stock (using Apple as example)
 state, decision = ta.propagate("AAPL", "2024-01-15")
 
-# 输出分析结果
-print(f"推荐动作: {decision['action']}")
-print(f"置信度: {decision['confidence']:.1%}")
-print(f"风险评分: {decision['risk_score']:.1%}")
-print(f"推理过程: {decision['reasoning']}")
+# Output analysis results
+print(f"Recommended Action: {decision['action']}")
+print(f"Confidence: {decision['confidence']:.1%}")
+print(f"Risk Score: {decision['risk_score']:.1%}")
+print(f"Reasoning: {decision['reasoning']}")
 ```
 
-#### 快速启动脚本
+#### Quick Start Scripts
 
 ```bash
-# 阿里百炼演示（推荐中文用户）
+# Alibaba Qwen demo (Recommended for international users)
 python examples/dashscope/demo_dashscope_chinese.py
 
-# 阿里百炼完整演示
+# Alibaba Qwen complete demo
 python examples/dashscope/demo_dashscope.py
 
-# 阿里百炼简化测试
+# Alibaba Qwen simplified test
 python examples/dashscope/demo_dashscope_simple.py
 
-# OpenAI演示（需要国外API）
+# OpenAI demo (Requires API access)
 python examples/openai/demo_openai.py
 
-# 集成测试
+# Integration test
 python tests/integration/test_dashscope_integration.py
 ```
 
-#### 📁 数据目录配置
+#### 📁 Data Directory Configuration
 
-**新功能**: 灵活配置数据存储路径，支持多种配置方式：
+**New Feature**: Flexible data storage path configuration with multiple configuration methods:
 
 ```bash
-# 查看当前数据目录配置
+# View current data directory configuration
 python -m cli.main data-config --show
 
-# 设置自定义数据目录
+# Set custom data directory
 python -m cli.main data-config --set /path/to/your/data
 
-# 重置为默认配置
+# Reset to default configuration
 python -m cli.main data-config --reset
 ```
 
-**环境变量配置**:
+**Environment Variable Configuration**:
 
 ```bash
 # Windows
@@ -1026,432 +1026,434 @@ set TRADING_AGENTS_DATA_DIR=C:\MyTradingData
 export TRADING_AGENTS_DATA_DIR=/home/user/trading_data
 ```
 
-**程序化配置**:
+**Programmatic Configuration**:
 
 ```python
 from tradingagents.config_manager import ConfigManager
 
-# 设置数据目录
+# Set data directory
 config_manager = ConfigManager()
 config_manager.set_data_directory("/path/to/data")
 
-# 获取配置
+# Get configuration
 data_dir = config_manager.get_data_directory()
-print(f"数据目录: {data_dir}")
+print(f"Data Directory: {data_dir}")
 ```
 
-**配置优先级**: 程序设置 > 环境变量 > 配置文件 > 默认值
+**Configuration Priority**: Program Settings > Environment Variables > Configuration File > Default Values
 
-详细说明请参考: [📁 数据目录配置指南](docs/configuration/data-directory-configuration.md)
+For detailed instructions, refer to: [📁 Data Directory Configuration Guide](docs/configuration/data-directory-configuration.md)
 
-### 交互式分析
+### Interactive Analysis
 
 ```bash
-# 启动交互式命令行界面
+# Launch interactive command line interface
 python -m cli.main
 ```
 
-## 🎯 **快速导航** - 找到您需要的内容
+## 🎯 **Quick Navigation** - Find What You Need
 
 
-| 🎯**我想要...** | 📖**推荐文档**                                            | ⏱️**阅读时间** |
-| --------------- | --------------------------------------------------------- | ---------------- |
-| **快速上手**    | [🚀 快速开始](docs/overview/quick-start.md)               | 10分钟           |
-| **了解架构**    | [🏛️ 系统架构](docs/architecture/system-architecture.md) | 15分钟           |
-| **看代码示例**  | [📚 基础示例](docs/examples/basic-examples.md)            | 20分钟           |
-| **解决问题**    | [🆘 常见问题](docs/faq/faq.md)                            | 5分钟            |
-| **深度学习**  | [📁 完整文档目录](#-详细文档目录)                         | 2小时+           |
+| 🎯**I Want to...** | 📖**Recommended Documentation**                            | ⏱️**Reading Time** |
+| ------------------- | ----------------------------------------------------------- | ------------------- |
+| **Get Started**     | [🚀 Quick Start](docs/overview/quick-start.md)             | 10 minutes          |
+| **Understand Architecture** | [🏛️ System Architecture](docs/architecture/system-architecture.md) | 15 minutes          |
+| **See Code Examples** | [📚 Basic Examples](docs/examples/basic-examples.md)      | 20 minutes          |
+| **Solve Problems**  | [🆘 FAQ](docs/faq/faq.md)                                  | 5 minutes           |
+| **Deep Learning**   | [📁 Complete Documentation Directory](#-detailed-documentation-directory) | 2+ hours            |
 
-> 💡 **提示**: 我们的 `docs/` 目录包含了 **50,000+字** 的详细中文文档，这是与原版最大的区别！
+> 💡 **Tip**: Our `docs/` directory contains **50,000+ words** of detailed documentation, this is the biggest difference from the original version!
 
-## 📚 完整文档体系 - 核心亮点
+## 📚 Complete Documentation System - Core Highlights
 
-> **🌟 这是本项目与原版最大的区别！** 我们构建了业界最完整的中文金融AI框架文档体系，包含超过 **50,000字** 的详细技术文档，**20+** 个专业文档文件，**100+** 个代码示例。
+> **🌟 This is the biggest difference from the original project!** We've built the industry's most comprehensive documentation system for financial AI frameworks, containing over **50,000 words** of detailed technical documentation, **20+** professional document files, and **100+** code examples.
 
-### 🎯 为什么选择我们的文档？
+### 🎯 Why Choose Our Documentation?
 
 
-| 对比维度     | 原版 TradingAgents | 🚀**中文增强版**           |
-| ------------ | ------------------ | -------------------------- |
-| **文档语言** | 英文基础说明       | **完整中文体系**           |
-| **文档深度** | 简单介绍           | **深度技术剖析**           |
-| **架构说明** | 概念性描述         | **详细设计文档 + 架构图**  |
-| **使用指南** | 基础示例           | **从入门到专家的完整路径** |
-| **故障排除** | 无                 | **详细FAQ + 解决方案**     |
-| **代码示例** | 少量示例           | **100+ 实用示例**          |
+| Comparison Dimension | Original TradingAgents | 🚀**Enhanced Version**        |
+| -------------------- | ---------------------- | ------------------------------ |
+| **Documentation Language** | Basic English description | **Complete international system** |
+| **Documentation Depth** | Simple introduction    | **Deep technical analysis**    |
+| **Architecture Description** | Conceptual description | **Detailed design docs + architecture diagrams** |
+| **Usage Guide**      | Basic examples         | **Complete path from beginner to expert** |
+| **Troubleshooting**  | None                   | **Detailed FAQ + solutions**   |
+| **Code Examples**    | Few examples           | **100+ practical examples**    |
 
-### 📖 文档导航 - 按学习路径组织
+### 📖 Documentation Navigation - Organized by Learning Path
 
-#### 🚀 **新手入门路径** (推荐从这里开始)
+#### 🚀 **Beginner Path** (Recommended starting point)
 
-1. [📋 项目概述](docs/overview/project-overview.md) - **了解项目背景和核心价值**
-2. [⚙️ 详细安装](docs/overview/installation.md) - **各平台详细安装指南**
-3. [🚀 快速开始](docs/overview/quick-start.md) - **10分钟上手指南**
-4. [📚 基础示例](docs/examples/basic-examples.md) - **8个实用的入门示例**
+1. [📋 Project Overview](docs/overview/project-overview.md) - **Understand project background and core value**
+2. [⚙️ Detailed Installation](docs/overview/installation.md) - **Detailed installation guide for all platforms**
+3. [🚀 Quick Start](docs/overview/quick-start.md) - **10-minute getting started guide**
+4. [📚 Basic Examples](docs/examples/basic-examples.md) - **8 practical beginner examples**
 
-#### 🏗️ **架构理解路径** (深入了解系统设计)
+#### 🏗️ **Architecture Understanding Path** (Deep dive into system design)
 
-1. [🏛️ 系统架构](docs/architecture/system-architecture.md) - **完整的系统架构设计**
-2. [🤖 智能体架构](docs/architecture/agent-architecture.md) - **多智能体协作机制**
-3. [📊 数据流架构](docs/architecture/data-flow-architecture.md) - **数据处理全流程**
-4. [🔄 图结构设计](docs/architecture/graph-structure.md) - **LangGraph工作流程**
+1. [🏛️ System Architecture](docs/architecture/system-architecture.md) - **Complete system architecture design**
+2. [🤖 Agent Architecture](docs/architecture/agent-architecture.md) - **Multi-agent collaboration mechanisms**
+3. [📊 Data Flow Architecture](docs/architecture/data-flow-architecture.md) - **Complete data processing pipeline**
+4. [🔄 Graph Structure Design](docs/architecture/graph-structure.md) - **LangGraph workflow processes**
 
-#### 🤖 **智能体深度解析** (了解每个智能体的设计)
+#### 🤖 **Agent Deep Dive** (Understanding each agent's design)
 
-1. [📈 分析师团队](docs/agents/analysts.md) - **四类专业分析师详解**
-2. [🔬 研究员团队](docs/agents/researchers.md) - **看涨/看跌辩论机制**
-3. [💼 交易员智能体](docs/agents/trader.md) - **交易决策制定流程**
-4. [🛡️ 风险管理](docs/agents/risk-management.md) - **多层次风险评估**
-5. [👔 管理层智能体](docs/agents/managers.md) - **协调和决策管理**
+1. [📈 Analyst Team](docs/agents/analysts.md) - **Four types of professional analysts explained**
+2. [🔬 Researcher Team](docs/agents/researchers.md) - **Bull/bear debate mechanisms**
+3. [💼 Trader Agent](docs/agents/trader.md) - **Trading decision-making process**
+4. [🛡️ Risk Management](docs/agents/risk-management.md) - **Multi-level risk assessment**
+5. [👔 Management Agents](docs/agents/managers.md) - **Coordination and decision management**
 
-#### 📊 **数据处理专题** (掌握数据处理技术)
+#### 📊 **Data Processing Focus** (Master data processing techniques)
 
-1. [🔌 数据源集成](docs/data/data-sources.md) - **多数据源API集成**
-2. [⚙️ 数据处理流程](docs/data/data-processing.md) - **数据清洗和转换**
-3. [💾 缓存策略](docs/data/caching.md) - **多层缓存优化性能**
+1. [🔌 Data Source Integration](docs/data/data-sources.md) - **Multi-data source API integration**
+2. [⚙️ Data Processing Pipeline](docs/data/data-processing.md) - **Data cleaning and transformation**
+3. [💾 Caching Strategy](docs/data/caching.md) - **Multi-layer cache performance optimization**
 
-#### ⚙️ **配置和优化** (性能调优和定制)
+#### ⚙️ **Configuration and Optimization** (Performance tuning and customization)
 
-1. [📝 配置指南](docs/configuration/config-guide.md) - **详细配置选项说明**
-2. [🧠 LLM配置](docs/configuration/llm-config.md) - **大语言模型优化**
+1. [📝 Configuration Guide](docs/configuration/config-guide.md) - **Detailed configuration options**
+2. [🧠 LLM Configuration](docs/configuration/llm-config.md) - **Large language model optimization**
 
-#### 💡 **高级应用** (扩展开发和实战)
+#### 💡 **Advanced Applications** (Extended development and practical use)
 
-1. [📚 基础示例](docs/examples/basic-examples.md) - **8个实用基础示例**
-2. [🚀 高级示例](docs/examples/advanced-examples.md) - **复杂场景和扩展开发**
+1. [📚 Basic Examples](docs/examples/basic-examples.md) - **8 practical basic examples**
+2. [🚀 Advanced Examples](docs/examples/advanced-examples.md) - **Complex scenarios and extended development**
 
-#### ❓ **问题解决** (遇到问题时查看)
+#### ❓ **Problem Solving** (When you encounter issues)
 
-1. [🆘 常见问题](docs/faq/faq.md) - **详细FAQ和解决方案**
+1. [🆘 FAQ](docs/faq/faq.md) - **Detailed FAQ and solutions**
 
-### 📊 文档统计数据
+### 📊 Documentation Statistics
 
-- 📄 **文档文件数**: 20+ 个专业文档
-- 📝 **总字数**: 50,000+ 字详细内容
-- 💻 **代码示例**: 100+ 个实用示例
-- 📈 **架构图表**: 10+ 个专业图表
-- 🎯 **覆盖范围**: 从入门到专家的完整路径
+- 📄 **Document Files**: 20+ professional documents
+- 📝 **Total Words**: 50,000+ words of detailed content
+- 💻 **Code Examples**: 100+ practical examples
+- 📈 **Architecture Diagrams**: 10+ professional charts
+- 🎯 **Coverage**: Complete path from beginner to expert
 
-### 🎨 文档特色
+### 🎨 Documentation Features
 
-- **🇨🇳 完全中文化**: 专为中文用户优化的表达方式
-- **📊 图文并茂**: 丰富的架构图和流程图
-- **💻 代码丰富**: 每个概念都有对应的代码示例
-- **🔍 深度剖析**: 不仅告诉你怎么做，还告诉你为什么这样做
-- **🛠️ 实用导向**: 所有文档都面向实际应用场景
+- **🌍 Fully International**: Expression optimized for international users
+- **📊 Rich Visual Content**: Abundant architecture diagrams and flowcharts
+- **💻 Code-Rich**: Every concept has corresponding code examples
+- **🔍 Deep Analysis**: Not just how to do it, but why to do it this way
+- **🛠️ Practical Oriented**: All documentation is oriented towards real application scenarios
 
 ---
 
-## 📚 详细文档目录
+## 📚 Detailed Documentation Directory
 
-### 📁 **docs/ 目录结构** - 完整的知识体系
+### 📁 **docs/ Directory Structure** - Complete Knowledge System
 
 ```
 docs/
-├── 📖 overview/              # 项目概览 - 新手必读
-│   ├── project-overview.md   # 📋 项目详细介绍
-│   ├── quick-start.md        # 🚀 10分钟快速上手
-│   └── installation.md       # ⚙️ 详细安装指南
+├── 📖 overview/              # Project Overview - Must-read for beginners
+│   ├── project-overview.md   # 📋 Detailed project introduction
+│   ├── quick-start.md        # 🚀 10-minute quick start
+│   └── installation.md       # ⚙️ Detailed installation guide
 │
-├── 🏗️ architecture/          # 系统架构 - 深度理解
-│   ├── system-architecture.md    # 🏛️ 整体架构设计
-│   ├── agent-architecture.md     # 🤖 智能体协作机制
-│   ├── data-flow-architecture.md # 📊 数据流处理架构
-│   └── graph-structure.md        # 🔄 LangGraph工作流
+├── 🏗️ architecture/          # System Architecture - Deep understanding
+│   ├── system-architecture.md    # 🏛️ Overall architecture design
+│   ├── agent-architecture.md     # 🤖 Agent collaboration mechanisms
+│   ├── data-flow-architecture.md # 📊 Data flow processing architecture
+│   └── graph-structure.md        # 🔄 LangGraph workflow
 │
-├── 🤖 agents/               # 智能体详解 - 核心组件
-│   ├── analysts.md          # 📈 四类专业分析师
-│   ├── researchers.md       # 🔬 看涨/看跌辩论机制
-│   ├── trader.md           # 💼 交易决策制定
-│   ├── risk-management.md  # 🛡️ 多层风险评估
-│   └── managers.md         # 👔 管理层协调
+├── 🤖 agents/               # Agent Details - Core components
+│   ├── analysts.md          # 📈 Four types of professional analysts
+│   ├── researchers.md       # 🔬 Bull/bear debate mechanisms
+│   ├── trader.md           # 💼 Trading decision making
+│   ├── risk-management.md  # 🛡️ Multi-level risk assessment
+│   └── managers.md         # 👔 Management coordination
 │
-├── 📊 data/                 # 数据处理 - 技术核心
-│   ├── data-sources.md      # 🔌 多数据源集成
-│   ├── data-processing.md   # ⚙️ 数据处理流程
-│   └── caching.md          # 💾 缓存优化策略
+├── 📊 data/                 # Data Processing - Technical core
+│   ├── data-sources.md      # 🔌 Multi-data source integration
+│   ├── data-processing.md   # ⚙️ Data processing pipeline
+│   └── caching.md          # 💾 Cache optimization strategy
 │
-├── ⚙️ configuration/        # 配置优化 - 性能调优
-│   ├── config-guide.md      # 📝 详细配置说明
-│   └── llm-config.md       # 🧠 LLM模型优化
+├── ⚙️ configuration/        # Configuration Optimization - Performance tuning
+│   ├── config-guide.md      # 📝 Detailed configuration explanation
+│   └── llm-config.md       # 🧠 LLM model optimization
 │
-├── 💡 examples/             # 示例教程 - 实战应用
-│   ├── basic-examples.md    # 📚 8个基础示例
-│   └── advanced-examples.md # 🚀 高级开发示例
+├── 💡 examples/             # Example Tutorials - Practical applications
+│   ├── basic-examples.md    # 📚 8 basic examples
+│   └── advanced-examples.md # 🚀 Advanced development examples
 │
-└── ❓ faq/                  # 问题解决 - 疑难解答
-    └── faq.md              # 🆘 常见问题FAQ
+└── ❓ faq/                  # Problem Solving - Troubleshooting
+    └── faq.md              # 🆘 FAQ
 ```
 
-### 🎯 **重点推荐文档** (必读精选)
+### 🎯 **Highly Recommended Documents** (Must-read selections)
 
-#### 🔥 **最受欢迎的文档**
+#### 🔥 **Most Popular Documents**
 
-1. **[📋 项目概述](docs/overview/project-overview.md)** - ⭐⭐⭐⭐⭐
+1. **[📋 Project Overview](docs/overview/project-overview.md)** - ⭐⭐⭐⭐⭐
 
-   > 了解项目的核心价值和技术特色，5分钟读懂整个框架
+   > Understand the core value and technical features of the project, understand the entire framework in 5 minutes
    >
-2. **[🏛️ 系统架构](docs/architecture/system-architecture.md)** - ⭐⭐⭐⭐⭐
+2. **[🏛️ System Architecture](docs/architecture/system-architecture.md)** - ⭐⭐⭐⭐⭐
 
-   > 深度解析多智能体协作机制，包含详细架构图
+   > Deep analysis of multi-agent collaboration mechanisms, including detailed architecture diagrams
    >
-3. **[📚 基础示例](docs/examples/basic-examples.md)** - ⭐⭐⭐⭐⭐
+3. **[📚 Basic Examples](docs/examples/basic-examples.md)** - ⭐⭐⭐⭐⭐
 
-   > 8个实用示例，从股票分析到投资组合优化
-   >
-
-#### 🚀 **技术深度文档**
-
-1. **[🤖 智能体架构](docs/architecture/agent-architecture.md)**
-
-   > 多智能体设计模式和协作机制详解
-   >
-2. **[📊 数据流架构](docs/architecture/data-flow-architecture.md)**
-
-   > 数据获取、处理、缓存的完整流程
-   >
-3. **[🔬 研究员团队](docs/agents/researchers.md)**
-
-   > 看涨/看跌研究员辩论机制的创新设计
+   > 8 practical examples, from stock analysis to portfolio optimization
    >
 
-#### 💼 **实用工具文档**
+#### 🚀 **Technical Deep Dive Documents**
 
-1. **[🌐 Web界面指南](docs/usage/web-interface-guide.md)** - ⭐⭐⭐⭐⭐
+1. **[🤖 Agent Architecture](docs/architecture/agent-architecture.md)**
 
-   > 完整的Web界面使用教程，包含5级研究深度详细说明
+   > Multi-agent design patterns and collaboration mechanisms explained
    >
-2. **[💰 投资分析指南](docs/usage/investment_analysis_guide.md)**
+2. **[📊 Data Flow Architecture](docs/architecture/data-flow-architecture.md)**
 
-   > 从基础到高级的完整投资分析教程
+   > Complete process of data acquisition, processing, and caching
    >
-3. **[🧠 LLM配置](docs/configuration/llm-config.md)**
+3. **[🔬 Researcher Team](docs/agents/researchers.md)**
 
-   > 多LLM模型配置和成本优化策略
-   >
-4. **[💾 缓存策略](docs/data/caching.md)**
-
-   > 多层缓存设计，显著降低API调用成本
-   >
-5. **[🆘 常见问题](docs/faq/faq.md)**
-
-   > 详细的FAQ和故障排除指南
+   > Innovative design of bull/bear researcher debate mechanisms
    >
 
-### 📖 **按模块浏览文档**
+#### 💼 **Practical Tool Documents**
+
+1. **[🌐 Web Interface Guide](docs/usage/web-interface-guide.md)** - ⭐⭐⭐⭐⭐
+
+   > Complete web interface usage tutorial, including detailed explanation of 5-level research depth
+   >
+2. **[💰 Investment Analysis Guide](docs/usage/investment_analysis_guide.md)**
+
+   > Complete investment analysis tutorial from basic to advanced
+   >
+3. **[🧠 LLM Configuration](docs/configuration/llm-config.md)**
+
+   > Multi-LLM model configuration and cost optimization strategies
+   >
+4. **[💾 Caching Strategy](docs/data/caching.md)**
+
+   > Multi-layer cache design, significantly reducing API call costs
+   >
+5. **[🆘 FAQ](docs/faq/faq.md)**
+
+   > Detailed FAQ and troubleshooting guide
+   >
+
+### 📖 **Browse Documents by Module**
 
 <details>
-<summary><strong>📖 概览文档</strong> - 项目入门必读</summary>
+<summary><strong>📖 Overview Documents</strong> - Essential reading for project entry</summary>
 
-- [📋 项目概述](docs/overview/project-overview.md) - 详细的项目背景和特性介绍
-- [🚀 快速开始](docs/overview/quick-start.md) - 从安装到第一次运行的完整指南
-- [⚙️ 详细安装](docs/overview/installation.md) - 各平台详细安装说明
+- [📋 Project Overview](docs/overview/project-overview.md) - Detailed project background and feature introduction
+- [🚀 Quick Start](docs/overview/quick-start.md) - Complete guide from installation to first run
+- [⚙️ Detailed Installation](docs/overview/installation.md) - Detailed installation instructions for all platforms
 
 </details>
 
 <details>
-<summary><strong>🏗️ 架构文档</strong> - 深度理解系统设计</summary>
+<summary><strong>🏗️ Architecture Documents</strong> - Deep understanding of system design</summary>
 
-- [🏛️ 系统架构](docs/architecture/system-architecture.md) - 完整的系统架构设计
-- [🤖 智能体架构](docs/architecture/agent-architecture.md) - 智能体设计模式和协作机制
-- [📊 数据流架构](docs/architecture/data-flow-architecture.md) - 数据获取、处理和分发流程
-- [🔄 图结构设计](docs/architecture/graph-structure.md) - LangGraph工作流程设计
-
-</details>
-
-<details>
-<summary><strong>🤖 智能体文档</strong> - 核心组件详解</summary>
-
-- [📈 分析师团队](docs/agents/analysts.md) - 四类专业分析师详解
-- [🔬 研究员团队](docs/agents/researchers.md) - 看涨/看跌研究员和辩论机制
-- [💼 交易员智能体](docs/agents/trader.md) - 交易决策制定流程
-- [🛡️ 风险管理](docs/agents/risk-management.md) - 多层次风险评估体系
-- [👔 管理层智能体](docs/agents/managers.md) - 协调和决策管理
+- [🏛️ System Architecture](docs/architecture/system-architecture.md) - Complete system architecture design
+- [🤖 Agent Architecture](docs/architecture/agent-architecture.md) - Agent design patterns and collaboration mechanisms
+- [📊 Data Flow Architecture](docs/architecture/data-flow-architecture.md) - Data acquisition, processing, and distribution pipeline
+- [🔄 Graph Structure Design](docs/architecture/graph-structure.md) - LangGraph workflow process design
 
 </details>
 
 <details>
-<summary><strong>📊 数据处理</strong> - 技术核心实现</summary>
+<summary><strong>🤖 Agent Documents</strong> - Core component details</summary>
 
-- [🔌 数据源集成](docs/data/data-sources.md) - 支持的数据源和API集成
-- [⚙️ 数据处理流程](docs/data/data-processing.md) - 数据清洗、转换和验证
-- [💾 缓存策略](docs/data/caching.md) - 多层缓存优化性能
-
-</details>
-
-<details>
-<summary><strong>⚙️ 配置与部署</strong> - 性能调优指南</summary>
-
-- [📝 配置指南](docs/configuration/config-guide.md) - 详细的配置选项说明
-- [🧠 LLM配置](docs/configuration/llm-config.md) - 大语言模型配置优化
+- [📈 Analyst Team](docs/agents/analysts.md) - Four types of professional analysts explained
+- [🔬 Researcher Team](docs/agents/researchers.md) - Bull/bear researchers and debate mechanisms
+- [💼 Trader Agent](docs/agents/trader.md) - Trading decision-making process
+- [🛡️ Risk Management](docs/agents/risk-management.md) - Multi-level risk assessment system
+- [👔 Management Agents](docs/agents/managers.md) - Coordination and decision management
 
 </details>
 
 <details>
-<summary><strong>💡 示例和教程</strong> - 实战应用指南</summary>
+<summary><strong>📊 Data Processing</strong> - Technical core implementation</summary>
 
-- [📚 基础示例](docs/examples/basic-examples.md) - 8个实用的基础示例
-- [🚀 高级示例](docs/examples/advanced-examples.md) - 复杂场景和扩展开发
+- [🔌 Data Source Integration](docs/data/data-sources.md) - Supported data sources and API integration
+- [⚙️ Data Processing Pipeline](docs/data/data-processing.md) - Data cleaning, transformation, and validation
+- [💾 Caching Strategy](docs/data/caching.md) - Multi-layer cache performance optimization
 
 </details>
 
 <details>
-<summary><strong>❓ 帮助文档</strong> - 问题解决方案</summary>
+<summary><strong>⚙️ Configuration and Deployment</strong> - Performance tuning guide</summary>
 
-- [🆘 常见问题](docs/faq/faq.md) - 详细的FAQ和解决方案
+- [📝 Configuration Guide](docs/configuration/config-guide.md) - Detailed configuration options explanation
+- [🧠 LLM Configuration](docs/configuration/llm-config.md) - Large language model configuration optimization
 
 </details>
 
-## 💰 成本控制
+<details>
+<summary><strong>💡 Examples and Tutorials</strong> - Practical application guide</summary>
 
-### 典型使用成本
+- [📚 Basic Examples](docs/examples/basic-examples.md) - 8 practical basic examples
+- [🚀 Advanced Examples](docs/examples/advanced-examples.md) - Complex scenarios and extended development
 
-- **经济模式**: $0.01-0.05/次分析 (使用 gpt-4o-mini)
-- **标准模式**: $0.05-0.15/次分析 (使用 gpt-4o)
-- **高精度模式**: $0.10-0.30/次分析 (使用 gpt-4o + 多轮辩论)
+</details>
 
-### 成本优化建议
+<details>
+<summary><strong>❓ Help Documents</strong> - Problem solutions</summary>
+
+- [🆘 FAQ](docs/faq/faq.md) - Detailed FAQ and solutions
+
+</details>
+
+## 💰 Cost Control
+
+### Typical Usage Costs
+
+- **Economy Mode**: $0.01-0.05/analysis (using gpt-4o-mini)
+- **Standard Mode**: $0.05-0.15/analysis (using gpt-4o)
+- **High Precision Mode**: $0.10-0.30/analysis (using gpt-4o + multi-round debate)
+
+### Cost Optimization Recommendations
 
 ```python
-# 低成本配置示例
+# Low-cost configuration example
 cost_optimized_config = {
     "deep_think_llm": "gpt-4o-mini",
     "quick_think_llm": "gpt-4o-mini", 
     "max_debate_rounds": 1,
-    "online_tools": False  # 使用缓存数据
+    "online_tools": False  # Use cached data
 }
 ```
 
-## 🤝 贡献指南
+## 🤝 Contribution Guidelines
 
-我们欢迎各种形式的贡献：
+We welcome all forms of contributions:
 
-### 贡献类型
+### Contribution Types
 
-- 🐛 **Bug修复** - 发现并修复问题
-- ✨ **新功能** - 添加新的功能特性
-- 📚 **文档改进** - 完善文档和教程
-- 🌐 **本地化** - 翻译和本地化工作
-- 🎨 **代码优化** - 性能优化和代码重构
+- 🐛 **Bug Fixes** - Discover and fix issues
+- ✨ **New Features** - Add new functionality
+- 📚 **Documentation Improvements** - Enhance documentation and tutorials
+- 🌐 **Localization** - Translation and localization work
+- 🎨 **Code Optimization** - Performance optimization and code refactoring
 
-### 贡献流程
+### Contribution Process
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建 Pull Request
+1. Fork this repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Create Pull Request
 
-### 📋 查看贡献者
+### 📋 View Contributors
 
-查看所有贡献者和详细贡献内容：**[🤝 贡献者名单](CONTRIBUTORS.md)**
+View all contributors and detailed contributions: **[🤝 Contributors List](CONTRIBUTORS.md)**
 
-## 📄 许可证
+## 📄 License
 
-本项目基于 Apache 2.0 许可证开源。详见 [LICENSE](LICENSE) 文件。
+This project is open source under the Apache 2.0 license. See [LICENSE](LICENSE) file for details.
 
-### 许可证说明
+### License Description
 
-- ✅ 商业使用
-- ✅ 修改和分发
-- ✅ 私人使用
-- ✅ 专利使用
-- ❗ 需要保留版权声明
-- ❗ 需要包含许可证副本
+- ✅ Commercial use
+- ✅ Modification and distribution
+- ✅ Private use
+- ✅ Patent use
+- ❗ Must retain copyright notice
+- ❗ Must include license copy
 
-## 🙏 致谢与感恩
+## 🙏 Acknowledgments and Gratitude
 
-### 🌟 向源项目开发者致敬
+### 🌟 Tribute to Original Project Developers
 
-我们向 [Tauric Research](https://github.com/TauricResearch) 团队表达最深的敬意和感谢：
+We express our deepest respect and gratitude to the [Tauric Research](https://github.com/TauricResearch) team:
 
-- **🎯 愿景领导者**: 感谢您们在AI金融领域的前瞻性思考和创新实践
-- **💎 珍贵源码**: 感谢您们开源的每一行代码，它们凝聚着无数的智慧和心血
-- **🏗️ 架构大师**: 感谢您们设计了如此优雅、可扩展的多智能体框架
-- **💡 技术先驱**: 感谢您们将前沿AI技术与金融实务完美结合
-- **🔄 持续贡献**: 感谢您们持续的维护、更新和改进工作
+- **🎯 Visionary Leaders**: Thank you for your forward-thinking and innovative practices in the AI finance field
+- **💎 Precious Source Code**: Thank you for every line of open source code, which embodies countless wisdom and effort
+- **🏗️ Architecture Masters**: Thank you for designing such an elegant and scalable multi-agent framework
+- **💡 Technology Pioneers**: Thank you for perfectly combining cutting-edge AI technology with financial practice
+- **🔄 Continuous Contribution**: Thank you for your ongoing maintenance, updates, and improvements
 
-### 🤝 社区贡献者致谢
+### 🤝 Community Contributors Acknowledgment
 
-感谢所有为TradingAgents-CN项目做出贡献的开发者和用户！
+Thank you to all developers and users who have contributed to the TradingAgents-CN project!
 
-详细的贡献者名单和贡献内容请查看：**[📋 贡献者名单](CONTRIBUTORS.md)**
+For detailed contributor list and contributions, see: **[📋 Contributors List](CONTRIBUTORS.md)**
 
-包括但不限于：
+Including but not limited to:
 
-- 🐳 **Docker容器化** - 部署方案优化
-- 📄 **报告导出功能** - 多格式输出支持
-- 🐛 **Bug修复** - 系统稳定性提升
-- 🔧 **代码优化** - 用户体验改进
-- 📝 **文档完善** - 使用指南和教程
-- 🌍 **社区建设** - 问题反馈和推广
-- **🌍 开源贡献**: 感谢您们选择Apache 2.0协议，给予开发者最大的自由
-- **📚 知识分享**: 感谢您们提供的详细文档和最佳实践指导
+- 🐳 **Docker Containerization** - Deployment solution optimization
+- 📄 **Report Export Functionality** - Multi-format output support
+- 🐛 **Bug Fixes** - System stability improvements
+- 🔧 **Code Optimization** - User experience improvements
+- 📝 **Documentation Enhancement** - Usage guides and tutorials
+- 🌍 **Community Building** - Issue feedback and promotion
+- **🌍 Open Source Contribution**: Thank you for choosing the Apache 2.0 license, giving developers maximum freedom
+- **📚 Knowledge Sharing**: Thank you for providing detailed documentation and best practice guidance
 
-**特别感谢**：[TradingAgents](https://github.com/TauricResearch/TradingAgents) 项目为我们提供了坚实的技术基础。虽然Apache 2.0协议赋予了我们使用源码的权利，但我们深知每一行代码的珍贵价值，将永远铭记并感谢您们的无私贡献。
+**Special Thanks**: The [TradingAgents](https://github.com/TauricResearch/TradingAgents) project provided us with a solid technical foundation. Although the Apache 2.0 license grants us the right to use the source code, we deeply understand the precious value of every line of code and will always remember and appreciate your selfless contributions.
 
-### 🇨🇳 推广使命的初心
+### 🌍 Mission and Vision
 
-创建这个中文增强版本，我们怀着以下初心：
+Creating this enhanced version, we are driven by the following mission:
 
-- **🌉 技术传播**: 让优秀的TradingAgents技术在中国得到更广泛的应用
-- **🎓 教育普及**: 为中国的AI金融教育提供更好的工具和资源
-- **🤝 文化桥梁**: 在中西方技术社区之间搭建交流合作的桥梁
-- **🚀 创新推动**: 推动中国金融科技领域的AI技术创新和应用
+- **🌉 Technology Dissemination**: Enable excellent TradingAgents technology to gain wider application globally
+- **🎓 Educational Outreach**: Provide better tools and resources for AI finance education worldwide
+- **🤝 Cultural Bridge**: Build bridges for exchange and cooperation between international technology communities
+- **🚀 Innovation Driver**: Promote AI technology innovation and application in the fintech field globally
 
-### 🌍 开源社区
+### 🌍 Open Source Community
 
-感谢所有为本项目贡献代码、文档、建议和反馈的开发者和用户。正是因为有了大家的支持，我们才能更好地服务中文用户社区。
+Thanks to all developers and users who have contributed code, documentation, suggestions, and feedback to this project. It is because of everyone's support that we can better serve the international user community.
 
-### 🤝 合作共赢
+### 🤝 Collaboration and Win-Win
 
-我们承诺：
+We commit to:
 
-- **尊重原创**: 始终尊重源项目的知识产权和开源协议
-- **反馈贡献**: 将有价值的改进和创新反馈给源项目和开源社区
-- **持续改进**: 不断完善中文增强版本，提供更好的用户体验
-- **开放合作**: 欢迎与源项目团队和全球开发者进行技术交流与合作
+- **Respect for Originality**: Always respect the intellectual property and open source agreements of the source project
+- **Feedback Contribution**: Provide valuable improvements and innovations back to the source project and open source community
+- **Continuous Improvement**: Continuously improve the enhanced version to provide better user experience
+- **Open Collaboration**: Welcome technical exchange and cooperation with the source project team and global developers
 
-## 📈 版本历史
+## 📈 Version History
 
-- **v0.1.13** (2025-08-02): 🤖 原生OpenAI支持与Google AI生态系统全面集成 ✨ **最新版本**
-- **v0.1.12** (2025-07-29): 🧠 智能新闻分析模块与项目结构优化
-- **v0.1.11** (2025-07-27): 🤖 多LLM提供商集成与模型选择持久化
-- **v0.1.10** (2025-07-18): 🚀 Web界面实时进度显示与智能会话管理
-- **v0.1.9** (2025-07-16): 🎯 CLI用户体验重大优化与统一日志管理
-- **v0.1.8** (2025-07-15): 🎨 Web界面全面优化与用户体验提升
-- **v0.1.7** (2025-07-13): 🐳 容器化部署与专业报告导出
-- **v0.1.6** (2025-07-11): 🔧 阿里百炼修复与数据源升级
-- **v0.1.5** (2025-07-08): 📊 添加Deepseek模型支持
-- **v0.1.4** (2025-07-05): 🏗️ 架构优化与配置管理重构
-- **v0.1.3** (2025-06-28): 🇨🇳 A股市场完整支持
-- **v0.1.2** (2025-06-15): 🌐 Web界面和配置管理
-- **v0.1.1** (2025-06-01): 🧠 国产LLM集成
+- **v0.1.15** (2025-10-04): 🤖 Major LLM ecosystem upgrade with Qianfan support, academic research materials, enterprise toolchain ✨ **Latest Version**
+- **v0.1.14** (2025-09-15): 👥 Complete user permission management system and web authentication
+- **v0.1.13** (2025-08-02): 🤖 Native OpenAI support and comprehensive Google AI ecosystem integration
+- **v0.1.12** (2025-07-29): 🧠 Smart news analysis module and project structure optimization
+- **v0.1.11** (2025-07-27): 🤖 Multi-LLM provider integration and model selection persistence
+- **v0.1.10** (2025-07-18): 🚀 Web interface real-time progress display and smart session management
+- **v0.1.9** (2025-07-16): 🎯 Major CLI user experience optimization and unified log management
+- **v0.1.8** (2025-07-15): 🎨 Comprehensive web interface optimization and user experience enhancement
+- **v0.1.7** (2025-07-13): 🐳 Containerized deployment and professional report export
+- **v0.1.6** (2025-07-11): 🔧 Alibaba Qianfan fixes and data source upgrades
+- **v0.1.5** (2025-07-08): 📊 Added DeepSeek model support
+- **v0.1.4** (2025-07-05): 🏗️ Architecture optimization and configuration management refactoring
+- **v0.1.3** (2025-06-28): 🇨🇳 Complete A-share market support
+- **v0.1.2** (2025-06-15): 🌐 Web interface and configuration management
+- **v0.1.1** (2025-06-01): 🧠 Leading LLM integration
 
-📋 **详细更新日志**: [CHANGELOG.md](./docs/releases/CHANGELOG.md)
+📋 **Detailed Changelog**: [CHANGELOG.md](./docs/releases/CHANGELOG.md)
 
-## 📞 联系方式
+## 📞 Contact Information
 
-- **GitHub Issues**: [提交问题和建议](https://github.com/hsliuping/TradingAgents-CN/issues)
-- **邮箱**: hsliup@163.com
-- 项目ＱＱ群：782124367
-- **原项目**: [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)
-- **文档**: [完整文档目录](docs/)
+- **GitHub Issues**: [Submit Issues and Suggestions](https://github.com/hsliuping/TradingAgents-CN/issues)
+- **Email**: hsliup@163.com
+- Project QQ Group: 782124367
+- **Original Project**: [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)
+- **Documentation**: [Complete Documentation Directory](docs/)
 
-## ⚠️ 风险提示
+## ⚠️ Risk Disclaimer
 
-**重要声明**: 本框架仅用于研究和教育目的，不构成投资建议。
+**Important Statement**: This framework is for research and educational purposes only and does not constitute investment advice.
 
-- 📊 交易表现可能因多种因素而异
-- 🤖 AI模型的预测存在不确定性
-- 💰 投资有风险，决策需谨慎
-- 👨‍💼 建议咨询专业财务顾问
+- 📊 Trading performance may vary due to multiple factors
+- 🤖 AI model predictions have uncertainty
+- 💰 Investment involves risks, decisions require caution
+- 👨‍💼 Recommend consulting professional financial advisors
 
 ---
 
 <div align="center">
 
-**🌟 如果这个项目对您有帮助，请给我们一个 Star！**
+**🌟 If this project helps you, please give us a Star!**
 
 [⭐ Star this repo](https://github.com/hsliuping/TradingAgents-CN) | [🍴 Fork this repo](https://github.com/hsliuping/TradingAgents-CN/fork) | [📖 Read the docs](./docs/)
 

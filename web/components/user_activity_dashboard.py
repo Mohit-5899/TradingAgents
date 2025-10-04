@@ -176,7 +176,7 @@ def render_activity_charts(activities: List[Dict[str, Any]]):
             y=usernames,
             orientation='h',
             title="用户活动排行榜 (前10名)",
-            labels={'x': '活动数量', 'y': '用户名'}
+            labels={'x': '活动数量', 'y': 'Username'}
         )
         st.plotly_chart(fig_bar, use_container_width=True)
 
@@ -209,7 +209,7 @@ def render_activity_list(activities: List[Dict[str, Any]]):
             "角色": activity.get('user_role', 'unknown'),
             "活动类型": activity.get('action_type', 'unknown'),
             "活动名称": activity.get('action_name', 'unknown'),
-            "成功": "✅" if activity.get('success', True) else "❌",
+            "Success": "✅" if activity.get('success', True) else "❌",
             "耗时(ms)": activity.get('duration_ms', ''),
             "详情": json.dumps(activity.get('details', {}), ensure_ascii=False)[:100] + "..." if activity.get('details') else ""
         })
@@ -296,7 +296,7 @@ def render_export_options(activities: List[Dict[str, Any]]):
                 row = {
                     "时间戳": activity['timestamp'],
                     "日期时间": timestamp.isoformat(),
-                    "用户名": activity.get('username', ''),
+                    "Username": activity.get('username', ''),
                     "用户角色": activity.get('user_role', ''),
                     "活动类型": activity.get('action_type', ''),
                     "活动名称": activity.get('action_name', ''),
@@ -304,7 +304,7 @@ def render_export_options(activities: List[Dict[str, Any]]):
                     "IP地址": activity.get('ip_address', ''),
                     "页面URL": activity.get('page_url', ''),
                     "耗时(ms)": activity.get('duration_ms', ''),
-                    "成功": activity.get('success', True),
+                    "Success": activity.get('success', True),
                     "错误信息": activity.get('error_message', '')
                 }
                 

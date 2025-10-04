@@ -195,7 +195,7 @@ def create_social_media_analyst(llm, toolkit):
                 tools=tools,
                 state=state,
                 analysis_prompt_template=analysis_prompt_template,
-                analyst_name="社交媒体分析师"
+                analyst_name="Social Media Analyst"
             )
         else:
             # 非Google模型的处理逻辑

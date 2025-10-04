@@ -335,7 +335,7 @@ def render_logs_charts(logs: List[Dict[str, Any]]):
             y=usernames,
             orientation='h',
             title="用户操作排行榜 (前10名)",
-            labels={'x': '操作数量', 'y': '用户名'}
+            labels={'x': '操作数量', 'y': 'Username'}
         )
         st.plotly_chart(fig_bar, use_container_width=True)
 
@@ -445,7 +445,7 @@ def render_logs_export(logs: List[Dict[str, Any]]):
                         '角色': log.get('user_role', 'unknown'),
                         '操作类型': log.get('action_type', 'unknown'),
                         '操作描述': action_desc,
-                        '状态': '成功' if log.get('success', True) else '失败',
+                        '状态': 'Success' if log.get('success', True) else 'Failed',
                         '详情': str(log.get('details', ''))
                     })
                 
@@ -499,7 +499,7 @@ def render_logs_export(logs: List[Dict[str, Any]]):
                         '角色': log.get('user_role', 'unknown'),
                         '操作类型': log.get('action_type', 'unknown'),
                         '操作描述': action_desc,
-                        '状态': '成功' if log.get('success', True) else '失败',
+                        '状态': 'Success' if log.get('success', True) else 'Failed',
                         '详情': str(log.get('details', ''))
                     })
                 

@@ -1,6 +1,6 @@
 """
-会话持久化管理器 - 不依赖Cookie的解决方案
-使用Redis/文件存储 + 浏览器指纹来实现跨页面刷新的状态持久化
+Session Persistence Manager - Cookie-Independent Solution
+Uses Redis/file storage + browser fingerprinting to achieve cross-page refresh state persistence
 """
 
 import streamlit as st
@@ -12,40 +12,40 @@ from typing import Optional, Dict, Any
 from pathlib import Path
 
 class SessionPersistenceManager:
-    """会话持久化管理器"""
+    """Session Persistence Manager"""
     
     def __init__(self):
         self.session_file_prefix = "session_"
-        self.max_age_hours = 24  # 会话有效期24小时
+        self.max_age_hours = 24  # Session validity period 24 hours
         
     def _get_browser_fingerprint(self) -> str:
-        """生成浏览器指纹（基于可用信息）"""
+        """Generate browser fingerprint (based on available information)"""
         try:
-            # 获取Streamlit的session信息
+            # Get Streamlit session information
             session_id = st.runtime.get_instance().get_client(st.session_state._get_session_id()).session.id
             
-            # 使用session_id作为指纹
+            # Use session_id as fingerprint
             fingerprint = hashlib.md5(session_id.encode()).hexdigest()[:12]
             return f"browser_{fingerprint}"
             
         except Exception:
-            # 如果无法获取session_id，使用时间戳作为fallback
-            timestamp = str(int(time.time() / 3600))  # 按小时分组
+            # If unable to get session_id, use timestamp as fallback
+            timestamp = str(int(time.time() / 3600))  # Group by hour
             fingerprint = hashlib.md5(timestamp.encode()).hexdigest()[:12]
             return f"fallback_{fingerprint}"
     
     def _get_session_file_path(self, fingerprint: str) -> str:
-        """获取会话文件路径"""
+        """Get session file path"""
         return f"./data/{self.session_file_prefix}{fingerprint}.json"
     
     def save_analysis_state(self, analysis_id: str, status: str = "running", 
                            stock_symbol: str = "", market_type: str = ""):
-        """保存分析状态到持久化存储"""
+        """Save analysis state to persistent storage"""
         try:
             fingerprint = self._get_browser_fingerprint()
             session_file = self._get_session_file_path(fingerprint)
             
-            # 确保目录存在
+            # Ensure directory exists
             os.makedirs(os.path.dirname(session_file), exist_ok=True)
             
             session_data = {

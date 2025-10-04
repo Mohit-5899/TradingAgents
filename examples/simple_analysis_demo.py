@@ -38,12 +38,12 @@ def quick_analysis_demo():
             "suitable_for": "短期交易者、技术分析爱好者",
             "example_stocks": ["AAPL", "TSLA", "NVDA"]
         },
-        "基本面分析": {
+        "Fundamentals Analysis": {
             "description": "分析财务状况、业务模式、竞争优势",
             "suitable_for": "长期投资者、价值投资者",
             "example_stocks": ["MSFT", "GOOGL", "BRK.B"]
         },
-        "风险评估": {
+        "Risk Assessment": {
             "description": "识别各类风险因素，制定风险控制策略",
             "suitable_for": "风险管理、投资组合管理",
             "example_stocks": ["SPY", "QQQ", "VTI"]

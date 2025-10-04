@@ -1,4 +1,4 @@
-# 标准库导入
+# Standard library imports
 import datetime
 import os
 import re
@@ -11,7 +11,7 @@ from functools import wraps
 from pathlib import Path
 from typing import Optional
 
-# 第三方库导入
+# Third-party library imports
 import typer
 from dotenv import load_dotenv
 from rich import box
@@ -26,7 +26,7 @@ from rich.spinner import Spinner
 from rich.table import Table
 from rich.text import Text
 
-# 项目内部导入
+# Project internal imports
 from cli.models import AnalystType
 from cli.utils import (
     select_analysts,
@@ -39,10 +39,10 @@ from tradingagents.default_config import DEFAULT_CONFIG
 from tradingagents.graph.trading_graph import TradingAgentsGraph
 from tradingagents.utils.logging_manager import get_logger
 
-# 加载环境变量
+# Load environment variables
 load_dotenv()
 
-# 常量定义
+# Constant definitions
 DEFAULT_MESSAGE_BUFFER_SIZE = 100
 DEFAULT_MAX_TOOL_ARGS_LENGTH = 100
 DEFAULT_MAX_CONTENT_LENGTH = 200
@@ -50,13 +50,12 @@ DEFAULT_MAX_DISPLAY_MESSAGES = 12
 DEFAULT_REFRESH_RATE = 4
 DEFAULT_API_KEY_DISPLAY_LENGTH = 12
 
-# 初始化日志系统
+# Initialize logging system
 logger = get_logger("cli")
 
-# CLI专用日志配置：禁用控制台输出，只保留文件日志
+# CLI-specific logging configuration: disable console output, keep only file logging
 def setup_cli_logging():
     """
-    CLI模式下的日志配置：移除控制台输出，保持界面清爽
     Configure logging for CLI mode: remove console output to keep interface clean
     """
     import logging
@@ -64,87 +63,87 @@ def setup_cli_logging():
 
     logger_manager = get_logger_manager()
 
-    # 获取根日志器
+    # Get root logger
     root_logger = logging.getLogger()
 
-    # 移除所有控制台处理器，只保留文件日志
+    # Remove all console handlers, keep only file logging
     for handler in root_logger.handlers[:]:
         if isinstance(handler, logging.StreamHandler) and hasattr(handler, 'stream'):
             if handler.stream.name in ['<stderr>', '<stdout>']:
                 root_logger.removeHandler(handler)
 
-    # 同时移除tradingagents日志器的控制台处理器
+    # Also remove console handlers from tradingagents logger
     tradingagents_logger = logging.getLogger('tradingagents')
     for handler in tradingagents_logger.handlers[:]:
         if isinstance(handler, logging.StreamHandler) and hasattr(handler, 'stream'):
             if handler.stream.name in ['<stderr>', '<stdout>']:
                 tradingagents_logger.removeHandler(handler)
 
-    # 记录CLI启动日志（只写入文件）
-    logger.debug("🚀 CLI模式启动，控制台日志已禁用，保持界面清爽")
+    # Log CLI startup (file only)
+    logger.debug("🚀 CLI mode started, console logging disabled, keeping interface clean")
 
-# 设置CLI日志配置
+# Set CLI logging configuration
 setup_cli_logging()
 
 console = Console()
 
-# CLI用户界面管理器
+# CLI user interface manager
 class CLIUserInterface:
-    """CLI用户界面管理器：处理用户显示和进度提示"""
+    """CLI user interface manager: handles user display and progress prompts"""
 
     def __init__(self):
         self.console = Console()
         self.logger = get_logger("cli")
 
     def show_user_message(self, message: str, style: str = ""):
-        """显示用户消息"""
+        """Display user message"""
         if style:
             self.console.print(f"[{style}]{message}[/{style}]")
         else:
             self.console.print(message)
 
     def show_progress(self, message: str):
-        """显示进度信息"""
+        """Display progress information"""
         self.console.print(f"🔄 {message}")
-        # 同时记录到日志文件
-        self.logger.info(f"进度: {message}")
+        # Also log to file
+        self.logger.info(f"Progress: {message}")
 
     def show_success(self, message: str):
-        """显示成功信息"""
+        """Display success information"""
         self.console.print(f"[green]✅ {message}[/green]")
-        self.logger.info(f"成功: {message}")
+        self.logger.info(f"Success: {message}")
 
     def show_error(self, message: str):
-        """显示错误信息"""
+        """Display error information"""
         self.console.print(f"[red]❌ {message}[/red]")
-        self.logger.error(f"错误: {message}")
+        self.logger.error(f"Error: {message}")
 
     def show_warning(self, message: str):
-        """显示警告信息"""
+        """Display warning information"""
         self.console.print(f"[yellow]⚠️ {message}[/yellow]")
-        self.logger.warning(f"警告: {message}")
+        self.logger.warning(f"Warning: {message}")
 
     def show_step_header(self, step_num: int, title: str):
-        """显示步骤标题"""
-        self.console.print(f"\n[bold cyan]步骤 {step_num}: {title}[/bold cyan]")
+        """Display step title"""
+        self.console.print(f"\n[bold cyan]Step {step_num}: {title}[/bold cyan]")
         self.console.print("─" * 60)
 
     def show_data_info(self, data_type: str, symbol: str, details: str = ""):
-        """显示数据获取信息"""
+        """Display data acquisition information"""
         if details:
             self.console.print(f"📊 {data_type}: {symbol} - {details}")
         else:
             self.console.print(f"📊 {data_type}: {symbol}")
 
-# 创建全局UI管理器
+# Create global UI manager
 ui = CLIUserInterface()
 
 app = typer.Typer(
     name="TradingAgents",
-    help="TradingAgents CLI: 多智能体大语言模型金融交易框架 | Multi-Agents LLM Financial Trading Framework",
+    help="TradingAgents CLI: Multi-Agents LLM Financial Trading Framework",
     add_completion=True,  # Enable shell completion
     rich_markup_mode="rich",  # Enable rich markup
-    no_args_is_help=False,  # 不显示帮助，直接进入分析模式
+    no_args_is_help=False,  # Don't show help, enter analysis mode directly
 )
 
 
@@ -286,7 +285,6 @@ message_buffer = MessageBuffer()
 
 def create_layout():
     """
-    创建CLI界面的布局结构
     Create the layout structure for CLI interface
     """
     layout = Layout()
@@ -559,8 +557,8 @@ def get_user_selections():
     # Step 1: Market selection
     console.print(
         create_question_box(
-            "步骤 1: 选择市场 | Step 1: Select Market",
-            "请选择要分析的股票市场 | Please select the stock market to analyze",
+            "Step 1: Select Market",
+            "Please select the stock market to analyze",
             ""
         )
     )
@@ -569,8 +567,8 @@ def get_user_selections():
     # Step 2: Ticker symbol
     console.print(
         create_question_box(
-            "步骤 2: 股票代码 | Step 2: Ticker Symbol",
-            f"请输入{selected_market['name']}股票代码 | Enter {selected_market['name']} ticker symbol",
+            "Step 2: Ticker Symbol",
+            f"Enter {selected_market['name_en']} ticker symbol",
             selected_market['default']
         )
     )
@@ -581,7 +579,7 @@ def get_user_selections():
     console.print(
         create_question_box(
             "步骤 3: 分析日期 | Step 3: Analysis Date",
-            "请输入分析日期 (YYYY-MM-DD) | Enter the analysis date (YYYY-MM-DD)",
+            "Enter the analysis date (YYYY-MM-DD)",
             default_date,
         )
     )
@@ -591,19 +589,19 @@ def get_user_selections():
     console.print(
         create_question_box(
             "步骤 4: 分析师团队 | Step 4: Analysts Team",
-            "选择您的LLM分析师智能体进行分析 | Select your LLM analyst agents for the analysis"
+            "Select your LLM analyst agents for the analysis"
         )
     )
     selected_analysts = select_analysts(selected_ticker)
     console.print(
-        f"[green]已选择的分析师 | Selected analysts:[/green] {', '.join(analyst.value for analyst in selected_analysts)}"
+        f"[green]Selected analysts:[/green] {', '.join(analyst.value for analyst in selected_analysts)}"
     )
 
     # Step 5: Research depth
     console.print(
         create_question_box(
             "步骤 5: 研究深度 | Step 5: Research Depth",
-            "选择您的研究深度级别 | Select your research depth level"
+            "Select your research depth level"
         )
     )
     selected_research_depth = select_research_depth()
@@ -612,7 +610,7 @@ def get_user_selections():
     console.print(
         create_question_box(
             "步骤 6: LLM提供商 | Step 6: LLM Provider",
-            "选择要使用的LLM服务 | Select which LLM service to use"
+            "Select which LLM service to use"
         )
     )
     selected_llm_provider, backend_url = select_llm_provider()
@@ -621,7 +619,7 @@ def get_user_selections():
     console.print(
         create_question_box(
             "步骤 7: 思考智能体 | Step 7: Thinking Agents",
-            "选择您的思考智能体进行分析 | Select your thinking agents for analysis"
+            "Select your thinking agents for analysis"
         )
     )
     selected_shallow_thinker = select_shallow_thinking_agent(selected_llm_provider)
@@ -641,10 +639,10 @@ def get_user_selections():
 
 
 def select_market():
-    """选择股票市场"""
+    """Select stock market"""
     markets = {
         "1": {
-            "name": "美股",
+            "name": "US Stock",
             "name_en": "US Stock",
             "default": "SPY",
             "examples": ["SPY", "AAPL", "TSLA", "NVDA", "MSFT"],
@@ -653,7 +651,7 @@ def select_market():
             "data_source": "yahoo_finance"
         },
         "2": {
-            "name": "A股",
+            "name": "A-Share",
             "name_en": "China A-Share",
             "default": "600036",
             "examples": ["000001 (平安银行)", "600036 (招商银行)", "000858 (五粮液)"],
@@ -662,7 +660,7 @@ def select_market():
             "data_source": "china_stock"
         },
         "3": {
-            "name": "港股",
+            "name": "HK Stock",
             "name_en": "Hong Kong Stock",
             "default": "0700.HK",
             "examples": ["0700.HK (腾讯)", "09988.HK (阿里巴巴)", "03690.HK (美团)"],
@@ -672,48 +670,48 @@ def select_market():
         }
     }
 
-    console.print(f"\n[bold cyan]请选择股票市场 | Please select stock market:[/bold cyan]")
+    console.print(f"\n[bold cyan]Please select stock market:[/bold cyan]")
     for key, market in markets.items():
         examples_str = ", ".join(market["examples"][:3])
         console.print(f"[cyan]{key}[/cyan]. 🌍 {market['name']} | {market['name_en']}")
         console.print(f"   示例 | Examples: {examples_str}")
 
     while True:
-        choice = typer.prompt("\n请选择市场 | Select market", default="2")
+        choice = typer.prompt("\nSelect market", default="2")
         if choice in markets:
             selected_market = markets[choice]
-            console.print(f"[green]✅ 已选择: {selected_market['name']} | Selected: {selected_market['name_en']}[/green]")
+            console.print(f"[green]✅ Selected: {selected_market['name_en']}[/green]")
             # 记录系统日志（只写入文件）
-            logger.info(f"用户选择市场: {selected_market['name']} ({selected_market['name_en']})")
+            logger.info(f"User selected market: {selected_market['name']} ({selected_market['name_en']})")
             return selected_market
         else:
-            console.print(f"[red]❌ 无效选择，请输入 1、2 或 3 | Invalid choice, please enter 1, 2, or 3[/red]")
-            logger.warning(f"用户输入无效选择: {choice}")
+            console.print(f"[red]❌ Invalid choice, please enter 1, 2, or 3[/red]")
+            logger.warning(f"User entered invalid choice: {choice}")
 
 
 def get_ticker(market):
-    """根据选定市场获取股票代码"""
-    console.print(f"\n[bold cyan]{market['name']}股票示例 | {market['name_en']} Examples:[/bold cyan]")
+    """Get stock ticker based on selected market"""
+    console.print(f"\n[bold cyan]{market['name_en']} Examples:[/bold cyan]")
     for example in market['examples']:
         console.print(f"  • {example}")
 
     console.print(f"\n[dim]格式要求 | Format: {market['format']}[/dim]")
 
     while True:
-        ticker = typer.prompt(f"\n请输入{market['name']}股票代码 | Enter {market['name_en']} ticker",
+        ticker = typer.prompt(f"\nEnter {market['name_en']} ticker",
                              default=market['default'])
 
         # 记录用户输入（只写入文件）
-        logger.info(f"用户输入股票代码: {ticker}")
+        logger.info(f"User entered stock ticker: {ticker}")
 
-        # 验证股票代码格式
+        # Validate stock ticker format
         import re
         
         # 添加边界条件检查
         ticker = ticker.strip()  # 移除首尾空格
         if not ticker:  # 检查空字符串
-            console.print(f"[red]❌ 股票代码不能为空 | Ticker cannot be empty[/red]")
-            logger.warning(f"用户输入空股票代码")
+            console.print(f"[red]❌ Ticker cannot be empty[/red]")
+            logger.warning(f"User entered empty stock ticker")
             continue
             
         ticker_to_check = ticker.upper() if market['data_source'] != 'china_stock' else ticker
@@ -721,17 +719,17 @@ def get_ticker(market):
         if re.match(market['pattern'], ticker_to_check):
             # 对于A股，返回纯数字代码
             if market['data_source'] == 'china_stock':
-                console.print(f"[green]✅ A股代码有效: {ticker} (将使用中国股票数据源)[/green]")
+                console.print(f"[green]✅ A-Share ticker valid: {ticker} (will use Chinese stock data source)[/green]")
                 logger.info(f"A股代码验证成功: {ticker}")
                 return ticker
             else:
-                console.print(f"[green]✅ 股票代码有效: {ticker.upper()}[/green]")
-                logger.info(f"股票代码验证成功: {ticker.upper()}")
+                console.print(f"[green]✅ Ticker valid: {ticker.upper()}[/green]")
+                logger.info(f"Ticker validation successful: {ticker.upper()}")
                 return ticker.upper()
         else:
-            console.print(f"[red]❌ 股票代码格式不正确 | Invalid ticker format[/red]")
+            console.print(f"[red]❌ Invalid ticker format[/red]")
             console.print(f"[yellow]请使用正确格式: {market['format']}[/yellow]")
-            logger.warning(f"股票代码格式验证失败: {ticker}")
+            logger.warning(f"Ticker format validation failed: {ticker}")
 
 
 def get_analysis_date():
@@ -1040,7 +1038,7 @@ def run_analysis():
     # 显示分析开始信息
     ui.show_step_header(1, "准备分析环境 | Preparing Analysis Environment")
     ui.show_progress(f"正在分析股票: {selections['ticker']}")
-    ui.show_progress(f"分析日期: {selections['analysis_date']}")
+    ui.show_progress(f"Analysis Date: {selections['analysis_date']}")
     ui.show_progress(f"选择的分析师: {', '.join(analyst.value for analyst in selections['analysts'])}")
 
     # Create config with selected research depth
@@ -1186,8 +1184,8 @@ def run_analysis():
 
             # 确定市场类型
             market_type_map = {
-                "china_stock": "A股",
-                "yahoo_finance": "港股" if ".HK" in selections["ticker"] else "美股"
+                "china_stock": "A-Share",
+                "yahoo_finance": "HK Stock" if ".HK" in selections["ticker"] else "US Stock"
             }
 
             # 获取选定市场的数据源类型
@@ -1202,11 +1200,11 @@ def run_analysis():
 
             # 根据股票代码推断市场类型
             if re.match(r'^\d{6}$', selections["ticker"]):
-                market_type = "A股"
+                market_type = "A-Share"
             elif ".HK" in selections["ticker"].upper():
-                market_type = "港股"
+                market_type = "HK Stock"
             else:
-                market_type = "美股"
+                market_type = "US Stock"
 
             # 预获取股票数据（默认30天历史数据）
             preparation_result = prepare_stock_data(

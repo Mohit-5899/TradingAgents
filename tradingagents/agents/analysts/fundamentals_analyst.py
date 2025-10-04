@@ -276,7 +276,7 @@ def create_fundamentals_analyst(llm, toolkit):
             analysis_prompt_template = GoogleToolCallHandler.create_analysis_prompt(
                 ticker=ticker,
                 company_name=company_name,
-                analyst_type="基本面分析",
+                analyst_type="Fundamentals Analysis",
                 specific_requirements="重点关注财务数据、盈利能力、估值指标、行业地位等基本面因素。"
             )
             
@@ -287,7 +287,7 @@ def create_fundamentals_analyst(llm, toolkit):
                 tools=tools,
                 state=state,
                 analysis_prompt_template=analysis_prompt_template,
-                analyst_name="基本面分析师"
+                analyst_name="Fundamentals Analyst"
             )
             
             return {"fundamentals_report": report}

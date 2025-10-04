@@ -1,18 +1,18 @@
 """
-智能进度跟踪器
-根据分析师数量、研究深度动态计算进度和时间预估
+Smart Progress Tracker
+Dynamically calculates progress and time estimation based on number of analysts and research depth
 """
 
 import time
 from typing import Optional, Callable, Dict, List
 import streamlit as st
 
-# 导入日志模块
+# Import logging module
 from tradingagents.utils.logging_manager import get_logger
 logger = get_logger('progress')
 
 class SmartAnalysisProgressTracker:
-    """智能分析进度跟踪器"""
+    """Smart Analysis Progress Tracker"""
 
     def __init__(self, analysts: List[str], research_depth: int, llm_provider: str, callback: Optional[Callable] = None):
         self.callback = callback
@@ -23,79 +23,79 @@ class SmartAnalysisProgressTracker:
         self.current_step = 0
         self.start_time = time.time()
 
-        # 根据分析师数量和研究深度动态生成步骤
+        # Dynamically generate steps based on number of analysts and research depth
         self.analysis_steps = self._generate_dynamic_steps()
         self.estimated_duration = self._estimate_total_duration()
 
     def _generate_dynamic_steps(self) -> List[Dict]:
-        """根据分析师数量动态生成分析步骤"""
+        """Dynamically generate analysis steps based on number of analysts"""
         steps = [
-            {"name": "数据验证", "description": "验证股票代码并预获取数据", "weight": 0.05},
-            {"name": "环境准备", "description": "检查API密钥和环境配置", "weight": 0.02},
-            {"name": "成本预估", "description": "预估分析成本", "weight": 0.01},
-            {"name": "参数配置", "description": "配置分析参数和模型", "weight": 0.02},
-            {"name": "引擎初始化", "description": "初始化AI分析引擎", "weight": 0.05},
+            {"name": "Data Validation", "description": "Validate stock symbol and pre-fetch data", "weight": 0.05},
+            {"name": "Environment Setup", "description": "Check API keys and environment configuration", "weight": 0.02},
+            {"name": "Cost Estimation", "description": "Estimate analysis cost", "weight": 0.01},
+            {"name": "Parameter Configuration", "description": "Configure analysis parameters and models", "weight": 0.02},
+            {"name": "Engine Initialization", "description": "Initialize AI analysis engine", "weight": 0.05},
         ]
 
-        # 为每个分析师添加专门的步骤
-        analyst_weight = 0.8 / len(self.analysts)  # 80%的时间用于分析师工作
+        # Add dedicated steps for each analyst
+        analyst_weight = 0.8 / len(self.analysts)  # 80% of time used for analyst work
         for analyst in self.analysts:
             analyst_name = self._get_analyst_display_name(analyst)
             steps.append({
-                "name": f"{analyst_name}分析",
-                "description": f"{analyst_name}正在进行专业分析",
+                "name": f"{analyst_name} Analysis",
+                "description": f"{analyst_name} conducting professional analysis",
                 "weight": analyst_weight
             })
 
-        # 最后的整理步骤
-        steps.append({"name": "结果整理", "description": "整理分析结果和生成报告", "weight": 0.05})
+        # Final organization step
+        steps.append({"name": "Result Organization", "description": "Organize analysis results and generate report", "weight": 0.05})
 
         return steps
 
     def _get_analyst_display_name(self, analyst: str) -> str:
-        """获取分析师显示名称"""
+        """Get analyst display name"""
         name_map = {
-            'market': '市场分析师',
-            'fundamentals': '基本面分析师',
-            'technical': '技术分析师',
-            'sentiment': '情绪分析师',
-            'risk': '风险分析师'
+            'market': 'Market Analyst',
+            'fundamentals': 'Fundamental Analyst',
+            'technical': 'Technical Analyst',
+            'sentiment': 'Sentiment Analyst',
+            'risk': 'Risk Analyst'
         }
         return name_map.get(analyst, analyst)
 
     def _estimate_total_duration(self) -> float:
-        """根据分析师数量、研究深度、模型类型预估总时长（秒）"""
-        # 基础时间（秒）- 环境准备、配置等
+        """Estimate total duration (seconds) based on number of analysts, research depth, and model type"""
+        # Base time (seconds) - environment setup, configuration, etc.
         base_time = 60
 
-        # 每个分析师的实际耗时（基于真实测试数据）
+        # Actual time consumption per analyst (based on real test data)
         analyst_base_time = {
-            1: 120,  # 快速分析：每个分析师约2分钟
-            2: 180,  # 基础分析：每个分析师约3分钟
-            3: 240   # 标准分析：每个分析师约4分钟
+            1: 120,  # Fast analysis: ~2 minutes per analyst
+            2: 180,  # Basic analysis: ~3 minutes per analyst
+            3: 240   # Standard analysis: ~4 minutes per analyst
         }.get(self.research_depth, 180)
 
         analyst_time = len(self.analysts) * analyst_base_time
 
-        # 模型速度影响（基于实际测试）
+        # Model speed impact (based on actual testing)
         model_multiplier = {
-            'dashscope': 1.0,  # 阿里百炼速度适中
-            'deepseek': 0.7,   # DeepSeek较快
-            'google': 1.3      # Google较慢
+            'dashscope': 1.0,  # DashScope moderate speed
+            'deepseek': 0.7,   # DeepSeek relatively fast
+            'google': 1.3      # Google relatively slow
         }.get(self.llm_provider, 1.0)
 
-        # 研究深度额外影响（工具调用复杂度）
+        # Additional impact of research depth (tool call complexity)
         depth_multiplier = {
-            1: 0.8,  # 快速分析，较少工具调用
-            2: 1.0,  # 基础分析，标准工具调用
-            3: 1.3   # 标准分析，更多工具调用和推理
+            1: 0.8,  # Fast analysis, fewer tool calls
+            2: 1.0,  # Basic analysis, standard tool calls
+            3: 1.3   # Standard analysis, more tool calls and reasoning
         }.get(self.research_depth, 1.0)
 
         total_time = (base_time + analyst_time) * model_multiplier * depth_multiplier
         return total_time
     
     def update(self, message: str, step: Optional[int] = None, total_steps: Optional[int] = None):
-        """更新进度"""
+        """Update progress"""
         current_time = time.time()
         elapsed_time = current_time - self.start_time
 
@@ -185,7 +185,7 @@ class SmartAnalysisProgressTracker:
         elif "初始化" in message or "引擎" in message:
             return 4
         # 分析师工作阶段 - 根据分析师名称和工具调用匹配
-        elif any(analyst_name in message for analyst_name in ["市场分析师", "基本面分析师", "技术分析师", "情绪分析师", "风险分析师"]):
+        elif any(analyst_name in message for analyst_name in ["Market Analyst", "Fundamentals Analyst", "技术分析师", "情绪分析师", "风险分析师"]):
             # 找到对应的分析师步骤
             for i, step in enumerate(self.analysis_steps):
                 if "分析师" in step["name"]:
@@ -236,7 +236,7 @@ class SmartAnalysisProgressTracker:
         elif "整理" in message or "结果" in message:
             return len(self.analysis_steps) - 1
         # 完成阶段
-        elif "完成" in message or "成功" in message:
+        elif "Completed" in message or "Success" in message:
             return len(self.analysis_steps) - 1
 
         return None
@@ -245,7 +245,7 @@ class SmartAnalysisProgressTracker:
         """获取当前步骤信息"""
         if self.current_step < len(self.analysis_steps):
             return self.analysis_steps[self.current_step]
-        return {"name": "完成", "description": "分析已完成", "weight": 0}
+        return {"name": "Completed", "description": "分析已完成", "weight": 0}
 
     def get_progress_percentage(self) -> float:
         """获取进度百分比"""

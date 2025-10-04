@@ -106,7 +106,7 @@ def analyze_my_stock():
         # 保存报告
         filename = f"{STOCK_SYMBOL}_analysis_report.txt"
         with open(filename, 'w', encoding='utf-8') as f:
-            f.write(f"股票代码: {STOCK_SYMBOL}\n")
+            f.write(f"Stock Code: {STOCK_SYMBOL}\n")
             f.write(f"分析重点: {ANALYSIS_FOCUS}\n")
             f.write(f"生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write("=" * 60 + "\n")

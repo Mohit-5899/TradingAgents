@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-报告导出工具
-支持将分析结果导出为多种格式
+Report Export Tool
+Supports exporting analysis results to multiple formats
 """
 
 import streamlit as st
@@ -14,11 +14,11 @@ from typing import Dict, Any, Optional
 import tempfile
 import base64
 
-# 导入日志模块
+# Import logging module
 from tradingagents.utils.logging_manager import get_logger
 logger = get_logger('web')
 
-# 导入MongoDB报告管理器
+# Import MongoDB report manager
 try:
     from web.utils.mongodb_report_manager import mongodb_report_manager
     MONGODB_REPORT_AVAILABLE = True
@@ -26,17 +26,17 @@ except ImportError:
     MONGODB_REPORT_AVAILABLE = False
     mongodb_report_manager = None
 
-# 配置日志 - 确保输出到stdout以便Docker logs可见
+# Configure logging - ensure output to stdout for Docker logs visibility
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.StreamHandler(),  # 输出到stdout
+        logging.StreamHandler(),  # Output to stdout
     ]
 )
 logger = logging.getLogger(__name__)
 
-# 导入Docker适配器
+# Import Docker adapter
 try:
     from .docker_pdf_adapter import (
         is_docker_environment,
